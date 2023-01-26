@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import logo from '../logo.svg'
 
 export default function BlogDetail() {
 	const [article, setArticle] = useState({});

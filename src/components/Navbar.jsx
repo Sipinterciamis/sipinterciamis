@@ -1,32 +1,25 @@
-import React from 'react'
 import { Link } from 'react-router-dom'
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
 
-export default function Navbar() {
+
+const Navigation = () => {
     return (
-        <div className="flex w-full px-40 py-7 items-center shadow-md">
-            {/* <div className="container mx-auto"> */}
-            <div className="navbar bg-white">
-                <div className="flex-1">
-                    <div className="flex-col">
-                        <h1><Link className="normal-case text-3xl text-primary-purple-1 font-bold" to={'/'}>Sipinter</Link></h1>
-                        <h4 className='text-base font-medium text-gray-2'>Sistem Informasi Manajemen Terminal Ciamis</h4>
-                    </div>
-                </div>
-                <div className="flex-none">
-                    <ul className="menu menu-horizontal px-1">
-                        <li className='px-1'><Link className='text-lg font-bold text-primary-purple-1' to="/blog">
-                            Info
-                        </Link></li>
-                        <li className='px-1'><Link className='text-lg font-bold text-gray-2' to="/contact">
-                            Trayek
-                        </Link></li>
-                        <li className='px-1'><Link className='text-lg font-bold text-gray-2' to="/contact">
-                            Wisata
-                        </Link></li>
-                    </ul>
-                </div>
-            </div>
-            {/* </div> */}
-        </div>
+        <>
+            <Navbar bg="light" variant="light">
+                <Container>
+                    <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+                    <Nav className="me-auto">
+                        <Nav.Link href="#home"><Link className='' to="/blog">Home</Link></Nav.Link>
+                        <Nav.Link href="#features">Features</Nav.Link>
+                        <Nav.Link href="#pricing">Pricing</Nav.Link>
+                    </Nav>
+                </Container>
+            </Navbar>
+        </>
     )
 }
+
+export default Navigation

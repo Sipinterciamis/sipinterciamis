@@ -1,5 +1,4 @@
 import { useEffect } from 'react';
-import bus from "../data/bus";
 import AKAP from "../data/AKAP";
 import terminal from "../data/images/terminal.jpg"
 
@@ -16,9 +15,8 @@ import { Autoplay, Navigation, Pagination } from "swiper";
 
 function HeaderInfo() {
 	return (
-		<div className='flex w-full h-80 bg-primary-purple-1 p-5'>
-			{/* <div className='bg-slate-50'>halo</div> */}
-			<div className="bg-slate-50 w-1/2">
+		<div className=''>
+			<div className="">
 				<Swiper
 					pagination={{
 						clickable: true,
@@ -37,9 +35,9 @@ function HeaderInfo() {
 					<SwiperSlide>Terminal Ciamis merupakan Induk Terminal dari beberapa terminal seperti Terminal Cisaga, Terminal Sindangkasih, Terminal Pamokolan</SwiperSlide>
 				</Swiper>
 			</div>
-			<div className="bg-slate-200 w-1/2 flex justify-center items-center">
+			<div className="">
 				{/* <p>halo</p> */}
-				<div className='bg-slate-600'>
+				<div className=''>
 					<img src={terminal} alt="aa" />
 				</div>
 			</div>
