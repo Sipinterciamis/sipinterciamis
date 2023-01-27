@@ -1,0 +1,52 @@
+.brand {
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  padding: 0;
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+.brand h3 {
+  color: #690B51;
+  margin-bottom: 0;
+}
+.brand small {
+  font-size: 16px;
+  color: #8E8E8E;
+}
+
+.navlink {
+  color: #8E8E8E;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+}
+.navlink:hover {
+  color: #2F1A2A;
+  border-bottom: 2px solid #2F1A2A;
+}
+
+.active {
+  color: #2F1A2A;
+}
+
+footer {
+  width: 100%;
+  background-color: #690B51;
+}
+footer p {
+  color: white;
+  font-size: 16px;
+}
+footer h2 {
+  color: #FFBF00;
+}
+footer a {
+  color: white;
+  font-size: 16px;
+  text-decoration: none;
+}
+footer a:hover {
+  color: #FFBF00;
+}/*# sourceMappingURL=wisata.css.map */
