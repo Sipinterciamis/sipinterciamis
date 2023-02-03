@@ -30,8 +30,8 @@ function App() {
 				</Link>
 			</nav> */}
 			<Routes>
-				<Route path="/" element={<Home />} />
-				<Route path="/blog" element={<Blog />} />
+				<Route path="/" element={<Blog />} />
+				<Route path="/info" element={<Home />} />
 				<Route path="/trayek" element={<Trayek />} />
 				<Route path="/wisata" element={<Wisata />} />
 				<Route path="/blog/:id" element={<BlogDetail />} />

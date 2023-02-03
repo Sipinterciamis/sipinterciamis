@@ -7,10 +7,10 @@ export default function Footer() {
   return (
     <>
       <footer
-        className="d-flex flex-column justify-content-around "
+        className="d-flex flex-column justify-content-around overflow-hidden"
         style={{ position: "absolute" }}
       >
-        <div className="row py-5 w-100" style={{ paddingLeft:"10rem",paddingRight:"10rem" }}>
+        <div className="head-row row py-lg-5 py-2 w-100 flex-lg-row flex-column">
         <div className="col d-flex gap-3 flex-column">
           <h2>Sipinter</h2>
           <div className="d-flex flex-column gap-3">

@@ -26,7 +26,7 @@ const Navigation = () => {
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="ms-auto">
               <Nav.Link>
-                <Link className={"navlink" + (url === "/blog" ? " active" : "")} to="/blog">
+                <Link className={"navlink" + (url === "/blog" ? " active" : "")} to="/info">
                   Info
                 </Link>
               </Nav.Link>
