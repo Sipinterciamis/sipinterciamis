@@ -4,13 +4,16 @@ import iconBuilding from "../data/images/wisata/icon/building.svg";
 import iconLocation from "../data/images/wisata/icon/location.svg";
 import iconSearch from "../data/images/wisata/icon/search.png";
 import rectangle from "../data/images/wisata/Rectangle.png";
-import potrait from "../data/images/wisata/potrait.png";
 import MyCard from "../components/Card";
 import "./styles/wisata.css"
-import PicCard from "../components/PicCard";
+import { useEffect } from "react";
 
 
 const Wisata = () => {
+
+  useEffect(() => {
+    document.title = 'Tempat Wisata - Sipinter Ciamis'
+  }, [])
 
   return (
     <div>
@@ -124,33 +127,6 @@ const Wisata = () => {
         </Container>
       </div>
       {/* END SECTION WISATA TERPOPULER */}
-
-      {/* START SECTION TEMPAT PILIHAN */}
-      <div className="mb-5" >
-        <h1 className="text-center mt-5 mb-4">Tempat Pilihan</h1>
-        <Container className="pb-4" >
-          <div className="d-flex flex-wrap gap-5 justify-content-center pb-5">
-            <PicCard
-              image={potrait}
-              lokasi="Ciamis"
-            />
-            <PicCard
-              image={potrait}
-              lokasi="Ciamis"
-            />
-            <PicCard
-              image={potrait}
-              lokasi="Ciamis"
-            />
-            <PicCard
-              image={potrait}
-              lokasi="Ciamis"
-            />
-          </div>
-          <p className="text-center">This is paghination</p>
-        </Container>
-      </div>
-      {/* END SECTION TEMPAT PILIHAN */}
     </div>
   );
 };

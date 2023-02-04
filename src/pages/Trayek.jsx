@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
-import { Badge, Button, Card, Container, ListGroup, Modal } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
-// import articles from '../../public/data/terminal'
+import { Button, Card, Container, ListGroup, Modal } from 'react-bootstrap';
 import angkots from '../data/angkot'
+import AKAP from '../data/AKAP';
+import AKDP from '../data/AKDP';
 import petaTrayek1 from '../data/images/trayek/angkot-angdes.jpg'
 import petaTrayek2 from '../data/images/trayek/trayek-au-ciamis.png'
 import petaTrayek3 from '../data/images/trayek/zona-trayek-au-1.jpg'
@@ -10,13 +10,7 @@ import petaTrayek4 from '../data/images/trayek/zona-trayek-au.jpg'
 
 import background from "../data/images/wisata/wisata.png";
 import iconBuilding from "../data/images/wisata/icon/building.svg";
-import iconLocation from "../data/images/wisata/icon/location.svg";
-import iconSearch from "../data/images/wisata/icon/search.png";
-import rectangle from "../data/images/wisata/Rectangle.png";
-import potrait from "../data/images/wisata/potrait.png";
-import MyCard from "../components/Card";
 import "./styles/wisata.css"
-import PicCard from "../components/PicCard";
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -30,8 +24,6 @@ import "swiper/css/navigation";
 // import required modules
 import { Navigation } from "swiper";
 
-
-
 const Trayek = () => {
 
     const [show, setShow] = useState(false);
@@ -44,6 +36,10 @@ const Trayek = () => {
         setNamaAngkot(nama)
         setFotoAngkot(foto)
     }
+
+    useEffect(() => {
+        document.title = 'Trayek - Sipinter Ciamis'
+    }, [])
 
     return (
         <div>
@@ -177,7 +173,7 @@ const Trayek = () => {
                                         <div className="fw-bold">{angkot.nama}</div>
                                         <div className='text-muted'>{angkot.trayek}</div>
                                     </div>
-                                    <Button variant="warning" className='rounded-pill text-white' onClick={() => handleShow(angkot.nama, angkot.imageUrl)}>Lihat foto</Button>
+                                    <Button variant="warning" className='rounded-pill text-white' onClick={() => handleShow(angkot.nama, angkot.imageUrl)}>Lihat Detail</Button>
                                 </ListGroup.Item>
                             ))}
 
@@ -201,40 +197,96 @@ const Trayek = () => {
             {/* END SECTION DAFTAR ANGKOT */}
 
             {/* START DATA BUS */}
-            <div className="mb-5" >
+            <div className="mb-5">
                 <h1 className="text-center mt-5 mb-4">Data Bus AKAP dan AKDP di Terminal Ciamis</h1>
-                <Container className="mt-5 pb-4" style={{ boxShadow: "0 2px 2px -2px rgba(0,0,0,.4)" }}>
-                    <div className="mb-4">
-                        <div className='bg-primary p-3 rounded-2 text-white mb-3'>
-                            BUS AKAP
+                <Container className="mt-5 pb-4">
+                    {/* START AKAP */}
+                    <div className='p-3 rounded-2 text-white mb-3 fw-semibold' style={{ backgroundColor: '#690B51' }}>
+                        BUS AKAP
+                    </div>
+                    <div className="row justify-content-center align-items-center">
+                        <div className="col-11 col-md-6 overflow-auto mb-5" style={{ height: '450px' }}>
+                            <div className="border rounded p-2">
+                                <ListGroup variant="flush">
+                                    <ListGroup.Item className='fw-semibold' style={{ color: '#690B51' }}>AKAP Besar</ListGroup.Item>
+                                    {AKAP.map((akap) => (
+                                        <>
+                                            {akap.besar.map((data) => (
+                                                <>
+                                                    <ListGroup.Item className='fw-semibold' style={{ borderBottomColor: 'rgba(185, 185, 185, 0.1)' }}>{data.namaPO}</ListGroup.Item>
+                                                    <ListGroup.Item className='ps-5'>{data.tujuan}</ListGroup.Item>
+                                                </>
+                                            ))}
+                                        </>
+                                    ))}
+                                </ListGroup>
+                            </div>
                         </div>
-                        <div className="row justify-content-center align-items-center">
-                            <div className="col">
-                                <div className="border rounded p-2">
-                                    <ListGroup variant="flush">
-                                        <ListGroup.Item>Cras justo odio</ListGroup.Item>
-                                        <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
-                                        <ListGroup.Item>Morbi leo risus</ListGroup.Item>
-                                        <ListGroup.Item>Porta ac consectetur ac</ListGroup.Item>
-                                    </ListGroup>
-                                </div>
+                        <div className="col-11 col-md-6 overflow-auto mb-5" style={{ height: '450px' }}>
+                            <div className="border rounded p-2">
+                                <ListGroup variant="flush">
+                                    <ListGroup.Item className='fw-semibold' style={{ color: '#690B51' }}>AKAP Sedang</ListGroup.Item>
+                                    {AKAP.map((akap) => (
+                                        <>
+                                            {akap.sedang.map((data) => (
+                                                <>
+                                                    <ListGroup.Item className='fw-semibold' style={{ borderBottomColor: 'rgba(185, 185, 185, 0.1)' }}>{data.namaPO}</ListGroup.Item>
+                                                    <ListGroup.Item className='ps-5'>{data.tujuan}</ListGroup.Item>
+                                                </>
+                                            ))}
+                                        </>
+                                    ))}
+                                </ListGroup>
                             </div>
-                            <div className="col">
-                                <div className="border rounded p-2">
-                                    <ListGroup variant="flush">
-                                        <ListGroup.Item>Cras justo odio</ListGroup.Item>
-                                        <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
-                                        <ListGroup.Item>Morbi leo risus</ListGroup.Item>
-                                        <ListGroup.Item>Porta ac consectetur ac</ListGroup.Item>
-                                    </ListGroup>
-                                </div>
-                            </div>
-
                         </div>
                     </div>
+                    {/* END AKAP */}
 
+                    {/* START AKDP */}
+                    <div className="mt-2">
+                        <div className='p-3 rounded-2 text-white mb-3 fw-semibold' style={{ backgroundColor: '#690B51' }}>
+                            BUS AKDP
+                        </div>
+                        <div className="row justify-content-center align-items-center mb-3">
+                            <div className="col-11 col-md-6 overflow-auto" style={{ height: '450px' }}>
+                                <div className="border rounded p-2">
+                                    <ListGroup variant="flush">
+                                        <ListGroup.Item className='fw-semibold' style={{ color: '#690B51' }}>AKDP Besar</ListGroup.Item>
+                                        {AKDP.map((akdp) => (
+                                            <>
+                                                {akdp.besar.map((data) => (
+                                                    <>
+                                                        <ListGroup.Item className='fw-semibold' style={{ borderBottomColor: 'rgba(185, 185, 185, 0.1)' }}>{data.namaPO}</ListGroup.Item>
+                                                        <ListGroup.Item className='ps-5'>{data.tujuan}</ListGroup.Item>
+                                                    </>
+                                                ))}
+                                            </>
+                                        ))}
+                                    </ListGroup>
+                                </div>
+                            </div>
+                            <div className="col-11 col-md-6 overflow-auto" style={{ height: '450px' }}>
+                                <div className="border rounded p-2">
+                                    <ListGroup variant="flush">
+                                        <ListGroup.Item className='fw-semibold' style={{ color: '#690B51' }}>AKDP Sedang</ListGroup.Item>
+                                        {AKDP.map((akdp) => (
+                                            <>
+                                                {akdp.sedang.map((data) => (
+                                                    <>
+                                                        <ListGroup.Item className='fw-semibold' style={{ borderBottomColor: 'rgba(185, 185, 185, 0.1)' }}>{data.namaPO}</ListGroup.Item>
+                                                        <ListGroup.Item className='ps-5'>{data.tujuan}</ListGroup.Item>
+                                                    </>
+                                                ))}
+                                            </>
+                                        ))}
+                                    </ListGroup>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {/* END AKDP */}
                 </Container>
-            </div>
+            </div >
             {/* END DATA BUS */}
         </div >
     );
