@@ -14,30 +14,13 @@ function App() {
 	return (
 		<div className="">
 			<Navbar />
-			{/* <div className="brand bg-sky-200">Website ku</div>
-      <nav className="nav">
-				<Link to="/" className="nav-item">
-					Home
-				</Link>
-				<Link to="/blog" className="nav-item">
-					Blog
-				</Link>
-				<Link to="/contact" className="nav-item">
-					Contact
-				</Link>
-				<Link to="/profile" className="nav-item">
-					Profile
-				</Link>
-			</nav> */}
 			<Routes>
 				<Route path="/" element={<Home />} />
-				<Route path="/blog" element={<Blog />} />
 				<Route path="/trayek" element={<Trayek />} />
 				<Route path="/wisata" element={<Wisata />} />
 				<Route path="/blog/:id" element={<BlogDetail />} />
 			</Routes>
-			{/* <Footer /> */}
-			<Footer/>
+			<Footer />
 		</div>
 	);
 }

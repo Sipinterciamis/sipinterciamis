@@ -1,4 +1,4 @@
-import { Button, Container } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import background from "../data/images/wisata/wisata.png";
 import iconBuilding from "../data/images/wisata/icon/building.svg";
 import iconLocation from "../data/images/wisata/icon/location.svg";
@@ -93,32 +93,32 @@ const Wisata = () => {
       {/* START SECTION WISATA TERPOPULER */}
       <div className="mb-5" >
         <h1 className="text-center mt-5 mb-4">Wisata Terpopuler</h1>
-        <Container className="pb-4"  style={{ boxShadow:"0 2px 2px -2px rgba(0,0,0,.4)" }}>
+        <Container className="pb-4" style={{ boxShadow: "0 2px 2px -2px rgba(0,0,0,.4)" }}>
           <div className="d-flex flex-wrap gap-4 justify-content-center pb-5">
-          <MyCard 
-          kategori="Wisata Alam"
-            judul="Curug Tujuh Cibolang"
-            lokasi="Sandingtaman, Panjalu, Ciamis, Jawa Barat"
-            image={rectangle}
-          />
-          <MyCard 
-          kategori="Wisata Alam"
-            judul="Curug Tujuh Cibolang"
-            lokasi="Sandingtaman, Panjalu, Ciamis, Jawa Barat"
-            image={rectangle}
-          />
-          <MyCard 
-          kategori="Wisata Alam"
-            judul="Curug Tujuh Cibolang"
-            lokasi="Sandingtaman, Panjalu, Ciamis, Jawa Barat"
-            image={rectangle}
-          />
-          <MyCard 
-          kategori="Wisata Alam"
-            judul="Curug Tujuh Cibolang"
-            lokasi="Sandingtaman, Panjalu, Ciamis, Jawa Barat"
-            image={rectangle}
-          />
+            <MyCard
+              kategori="Wisata Alam"
+              judul="Curug Tujuh Cibolang"
+              lokasi="Sandingtaman, Panjalu, Ciamis, Jawa Barat"
+              image={rectangle}
+            />
+            <MyCard
+              kategori="Wisata Alam"
+              judul="Curug Tujuh Cibolang"
+              lokasi="Sandingtaman, Panjalu, Ciamis, Jawa Barat"
+              image={rectangle}
+            />
+            <MyCard
+              kategori="Wisata Alam"
+              judul="Curug Tujuh Cibolang"
+              lokasi="Sandingtaman, Panjalu, Ciamis, Jawa Barat"
+              image={rectangle}
+            />
+            <MyCard
+              kategori="Wisata Alam"
+              judul="Curug Tujuh Cibolang"
+              lokasi="Sandingtaman, Panjalu, Ciamis, Jawa Barat"
+              image={rectangle}
+            />
           </div>
           <p className="text-center">This is paghination</p>
         </Container>
@@ -130,22 +130,22 @@ const Wisata = () => {
         <h1 className="text-center mt-5 mb-4">Tempat Pilihan</h1>
         <Container className="pb-4" >
           <div className="d-flex flex-wrap gap-5 justify-content-center pb-5">
-          <PicCard 
-            image={potrait}
-            lokasi="Ciamis"
-          />
-          <PicCard 
-            image={potrait}
-            lokasi="Ciamis"
-          />
-          <PicCard 
-            image={potrait}
-            lokasi="Ciamis"
-          />
-          <PicCard 
-            image={potrait}
-            lokasi="Ciamis"
-          />
+            <PicCard
+              image={potrait}
+              lokasi="Ciamis"
+            />
+            <PicCard
+              image={potrait}
+              lokasi="Ciamis"
+            />
+            <PicCard
+              image={potrait}
+              lokasi="Ciamis"
+            />
+            <PicCard
+              image={potrait}
+              lokasi="Ciamis"
+            />
           </div>
           <p className="text-center">This is paghination</p>
         </Container>
