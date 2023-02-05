@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
-import { Button, Card, Container, ListGroup, Modal } from 'react-bootstrap';
+import { useEffect } from 'react';
+import { Card, Container, ListGroup } from 'react-bootstrap';
 import angkots from '../data/angkot'
 import AKAP from '../data/AKAP';
 import AKDP from '../data/AKDP';
