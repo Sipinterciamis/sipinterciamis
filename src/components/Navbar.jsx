@@ -9,7 +9,7 @@ const Navigation = () => {
   const [url, setUrl] = useState(null);
   useEffect(() => {
     setUrl(location.pathname);
-    console.log(url);
+    // console.log(url);
   }, [location]);
 
   return (
