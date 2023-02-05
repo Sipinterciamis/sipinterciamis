@@ -7,7 +7,7 @@ import rectangle from "../data/images/wisata/Rectangle.png";
 import MyCard from "../components/Card";
 import "./styles/wisata.css"
 import { useEffect } from "react";
-
+import { Link } from "react-router-dom";
 
 const Wisata = () => {
 
@@ -98,12 +98,14 @@ const Wisata = () => {
         <h1 className="text-center mt-5 mb-4">Wisata Terpopuler</h1>
         <Container className="pb-4" style={{ boxShadow: "0 2px 2px -2px rgba(0,0,0,.4)" }}>
           <div className="d-flex flex-wrap gap-4 justify-content-center pb-5">
+          <Link to="/wisata/1" className="text-decoration-none text-dark">
             <MyCard
               kategori="Wisata Alam"
               judul="Curug Tujuh Cibolang"
               lokasi="Sandingtaman, Panjalu, Ciamis, Jawa Barat"
               image={rectangle}
             />
+            </Link>
             <MyCard
               kategori="Wisata Alam"
               judul="Curug Tujuh Cibolang"

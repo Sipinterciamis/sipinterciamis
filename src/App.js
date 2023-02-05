@@ -5,6 +5,7 @@ import Navbar from './components/Navbar';
 import Wisata from './pages/Wisata';
 import Trayek from './pages/Trayek';
 import Footer from './components/Footer';
+import DetailWisata from './pages/DetailWisata';
 import TrayekDetail from './pages/TrayekDetail';
 
 // import Footer from './components/Footer';
@@ -18,6 +19,7 @@ function App() {
 				<Route path="/trayek" element={<Trayek />} />
 				<Route path="/trayek/:idAngkot" element={<TrayekDetail />} />
 				<Route path="/wisata" element={<Wisata />} />
+				<Route path='/wisata/:id' element={<DetailWisata />} />
 			</Routes>
 			<Footer />
 		</div>
