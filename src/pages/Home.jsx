@@ -94,6 +94,7 @@ function Home() {
 					: "80px"
 			}}>
 				<p className="text-center judul mt-lg-5 mt-3 mb-4">Fasilitas Terminal Ciamis</p>
+				{/* DESKTOP */}
 				<Swiper
 					modules={[Navigation, Pagination]}
 					navigation={true}
@@ -125,6 +126,8 @@ function Home() {
 						</SwiperSlide>
 					))}
 				</Swiper>
+				
+				{/* MOBILE */}
 				<Swiper
 					modules={[Navigation, Pagination]}
 					navigation={true}
@@ -135,8 +138,8 @@ function Home() {
 					className="myswiper-sm col-md-7 col-10"
 				>
 					{fasilitas.map((fasil) => (
-						<SwiperSlide className="col-md-3 flex-column mx-4" style={{ border: "1px solid #B9B9B9D9", borderRadius: "8px", height: "400px", boxShadow: " 0px 2px 4px 0px rgba(0, 0, 0, 0.25)" }}>
-							<img src={fasil.imageUrl} alt="" style={{ objectFit: "contain", borderRadius: "8px" }} className="p-2" />
+						<SwiperSlide className="col-md-3 flex-column mx-4 pt-4" style={{ border: "1px solid #B9B9B9D9", borderRadius: "8px", height: "400px", boxShadow: " 0px 2px 4px 0px rgba(0, 0, 0, 0.25)" }}>
+							<img src={fasil.imageUrl} alt="" style={{ objectFit: "cover", borderRadius: "8px" }} className="p-2" />
 							<p style={{ fontWeight: "500" }} className="text-center">{fasil.nama}</p>
 						</SwiperSlide>
 					))}
