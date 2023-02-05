@@ -162,7 +162,7 @@ function Home() {
 			<Container>
 				<div className="row justify-content-center align-items-center my-5">
 					<div className="col text-center py-5">
-						<div className='ms-auto me-auto mb-4' style={{ maxWidth: '400px', color: '#690B51' }} >
+						<div className='ms-auto me-auto mb-4' style={{ maxWidth: '350px', color: '#690B51' }} >
 							<h1 className="mb-0 fw-bold">Kami Membutuhkan <span style={{ color: '#FFBF00' }}>Kritik & Saran</span></h1>
 							<h1 className="fw-bold">Dari Anda</h1>
 						</div>

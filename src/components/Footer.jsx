@@ -35,10 +35,9 @@ export default function Footer() {
           <div className="col" style={{ backgroundImage: `url(${map})` }}>
           </div>
         </div>
-        <div className="row" style={{ backgroundColor: "#2F1A2A" }}>
+        <div className="" style={{ backgroundColor: "#2F1A2A" }}>
           <p className="text-center mb-0 py-3">&#169; UPTD Terminal Ciamis</p>
         </div>
-
       </footer>
     </>
   );

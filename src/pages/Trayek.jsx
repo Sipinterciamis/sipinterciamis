@@ -23,23 +23,32 @@ import "swiper/css/navigation";
 
 // import required modules
 import { Navigation } from "swiper";
+import { Link } from 'react-router-dom';
 
 const Trayek = () => {
-
-    const [show, setShow] = useState(false);
-    const [namaAngkot, setNamaAngkot] = useState('');
-    const [fotoAngkot, setFotoAngkot] = useState('');
-
-    const handleClose = () => setShow(false);
-    const handleShow = (nama, foto) => {
-        setShow(true)
-        setNamaAngkot(nama)
-        setFotoAngkot(foto)
-    }
 
     useEffect(() => {
         document.title = 'Trayek - Sipinter Ciamis'
     }, [])
+
+    const renderItem = (itemTujuan) => {
+        const tujuan = Array.isArray(itemTujuan) ? itemTujuan[0] : itemTujuan;
+
+        return (
+            <>
+                {/* <ListGroup.Item className='ps-5'>{tujuan}</ListGroup.Item> */}
+
+                {Array.isArray(itemTujuan)
+                    ? itemTujuan
+                        // .slice(1)
+                        .map((name, index) => (
+                            <ListGroup.Item className='ps-5 border-bottom-0'>{name}</ListGroup.Item>
+                        ))
+                    : <ListGroup.Item className='ps-5'>{tujuan}</ListGroup.Item>
+                }
+            </>
+        );
+    };
 
     return (
         <div>
@@ -151,8 +160,6 @@ const Trayek = () => {
                                 </SwiperSlide>
                             </Swiper>
                         </div>
-
-
                     </div>
                 </Container>
             </div>
@@ -170,10 +177,10 @@ const Trayek = () => {
                                     className="d-flex justify-content-between align-items-center"
                                 >
                                     <div className="ms-2 me-auto">
-                                        <div className="fw-bold">{angkot.nama}</div>
+                                        <div className="fw-semibold" style={{ color: '#690B51' }}>{angkot.nama}</div>
                                         <div className='text-muted'>{angkot.trayek}</div>
                                     </div>
-                                    <Button variant="warning" className='rounded-pill text-white' onClick={() => handleShow(angkot.nama, angkot.imageUrl)}>Lihat Detail</Button>
+                                    <Link to={`/trayek/${angkot.id}`} className='rounded-pill text-decoration-none py-2 px-4' style={{ backgroundColor: '#FFBF0026', color: '#FFBF00' }}>Lihat Detail</Link>
                                 </ListGroup.Item>
                             ))}
 
@@ -181,19 +188,6 @@ const Trayek = () => {
                     </div>
                 </Container>
             </div>
-
-            {/* MODAL */}
-            <Modal show={show} onHide={handleClose}>
-                <Modal.Header closeButton>
-                    <Modal.Title>Modal heading</Modal.Title>
-                </Modal.Header>
-                <Modal.Body className=''>
-                    <div className='mb-2' style={{ height: '400px' }}>
-                        <img src={fotoAngkot} alt={namaAngkot} className='w-100' style={{ height: '100%', objectFit: 'cover' }} />
-                    </div>
-                    <p className='fw-bold'>{namaAngkot}</p>
-                </Modal.Body>
-            </Modal>
             {/* END SECTION DAFTAR ANGKOT */}
 
             {/* START DATA BUS */}
@@ -204,8 +198,8 @@ const Trayek = () => {
                     <div className='p-3 rounded-2 text-white mb-3 fw-semibold' style={{ backgroundColor: '#690B51' }}>
                         BUS AKAP
                     </div>
-                    <div className="row justify-content-center align-items-center">
-                        <div className="col-11 col-md-6 overflow-auto mb-5" style={{ height: '450px' }}>
+                    <div className="row justify-content-center align-items-center mb-md-5">
+                        <div className="col-11 col-md-6 overflow-auto mb-5 mb-md-0" style={{ height: '450px' }}>
                             <div className="border rounded p-2">
                                 <ListGroup variant="flush">
                                     <ListGroup.Item className='fw-semibold' style={{ color: '#690B51' }}>AKAP Besar</ListGroup.Item>
@@ -214,7 +208,8 @@ const Trayek = () => {
                                             {akap.besar.map((data) => (
                                                 <>
                                                     <ListGroup.Item className='fw-semibold' style={{ borderBottomColor: 'rgba(185, 185, 185, 0.1)' }}>{data.namaPO}</ListGroup.Item>
-                                                    <ListGroup.Item className='ps-5'>{data.tujuan}</ListGroup.Item>
+                                                    {renderItem(data.tujuan)}
+                                                    {/* <ListGroup.Item className='ps-5'>{data.tujuan}</ListGroup.Item> */}
                                                 </>
                                             ))}
                                         </>
@@ -222,7 +217,7 @@ const Trayek = () => {
                                 </ListGroup>
                             </div>
                         </div>
-                        <div className="col-11 col-md-6 overflow-auto mb-5" style={{ height: '450px' }}>
+                        <div className="col-11 col-md-6 overflow-auto" style={{ height: '450px' }}>
                             <div className="border rounded p-2">
                                 <ListGroup variant="flush">
                                     <ListGroup.Item className='fw-semibold' style={{ color: '#690B51' }}>AKAP Sedang</ListGroup.Item>
@@ -231,7 +226,8 @@ const Trayek = () => {
                                             {akap.sedang.map((data) => (
                                                 <>
                                                     <ListGroup.Item className='fw-semibold' style={{ borderBottomColor: 'rgba(185, 185, 185, 0.1)' }}>{data.namaPO}</ListGroup.Item>
-                                                    <ListGroup.Item className='ps-5'>{data.tujuan}</ListGroup.Item>
+                                                    {renderItem(data.tujuan)}
+                                                    {/* <ListGroup.Item className='ps-5'>{data.tujuan}</ListGroup.Item> */}
                                                 </>
                                             ))}
                                         </>
@@ -243,7 +239,7 @@ const Trayek = () => {
                     {/* END AKAP */}
 
                     {/* START AKDP */}
-                    <div className="mt-2">
+                    <div className="mt-1">
                         <div className='p-3 rounded-2 text-white mb-3 fw-semibold' style={{ backgroundColor: '#690B51' }}>
                             BUS AKDP
                         </div>
@@ -257,7 +253,8 @@ const Trayek = () => {
                                                 {akdp.besar.map((data) => (
                                                     <>
                                                         <ListGroup.Item className='fw-semibold' style={{ borderBottomColor: 'rgba(185, 185, 185, 0.1)' }}>{data.namaPO}</ListGroup.Item>
-                                                        <ListGroup.Item className='ps-5'>{data.tujuan}</ListGroup.Item>
+                                                        {renderItem(data.tujuan)}
+                                                        {/* <ListGroup.Item className='ps-5'>{data.tujuan}</ListGroup.Item> */}
                                                     </>
                                                 ))}
                                             </>
@@ -274,7 +271,8 @@ const Trayek = () => {
                                                 {akdp.sedang.map((data) => (
                                                     <>
                                                         <ListGroup.Item className='fw-semibold' style={{ borderBottomColor: 'rgba(185, 185, 185, 0.1)' }}>{data.namaPO}</ListGroup.Item>
-                                                        <ListGroup.Item className='ps-5'>{data.tujuan}</ListGroup.Item>
+                                                        {renderItem(data.tujuan)}
+                                                        {/* <ListGroup.Item className='ps-5'>{data.tujuan}</ListGroup.Item> */}
                                                     </>
                                                 ))}
                                             </>
