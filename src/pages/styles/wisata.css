@@ -10,11 +10,12 @@
 
 .brand h3 {
   color: #690B51;
-  margin-bottom: 0;
+  font-size: 16px;
+  /* margin-bottom: 0; */
 }
 
 .brand small {
-  font-size: 14px;
+  font-size: 10px;
   color: #8E8E8E;
 }
 
@@ -71,6 +72,10 @@ footer a:hover {
 
   .brand small {
     font-size: 16px;
+  }
+
+  .brand h3 {
+    font-size: 28px;
   }
 
   .navlink {

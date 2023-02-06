@@ -122,7 +122,7 @@ const Trayek = () => {
             {/* END SECTION PETA RUTE TRAYEK */}
 
             {/* START DAFTAR ANGKOT */}
-            <div className="mb-5 px-4 px-md-0" >
+            <div className="mb-5 px-4 px-md-0 data-angkot">
                 <h2 className="text-center mt-5 mb-4 fw-semibold">Daftar Angkot Terminal Ciamis</h2>
                 <Container className="mt-5 pb-4" style={{ boxShadow: "0 2px 2px -2px rgba(0,0,0,.4)" }}>
                     {/* <div className="list-trayek">
