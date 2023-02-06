@@ -1,6 +1,7 @@
 import { Card, Container } from 'react-bootstrap'
 import Table from 'react-bootstrap/Table';
 import angkots from '../data/angkot';
+import routing from "../data/images/detailWisata/routing.png"
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 
@@ -11,6 +12,7 @@ function TrayekDetail() {
     useEffect(() => {
         const result = angkots.find(i => i.id === parseInt(idAngkot));
         setDataAngkot(result);
+        document.title = 'Detail Trayek - SIPINTER Ciamis'
     }, [idAngkot]);
 
     const renderItem = (id, itemAsal, itemTujuan) => {
@@ -20,7 +22,7 @@ function TrayekDetail() {
         return (
             <>
                 <tr>
-                    <td>{id}</td>
+                    <td className='text-center'>{id}</td>
                     <td>{asal}</td>
                     <td>{tujuan}</td>
                 </tr>
@@ -48,29 +50,33 @@ function TrayekDetail() {
     };
 
     return (
-        <div>
+        <Container className='mt-5'>
             {dataAngkot ? (
-                <Container className='mt-5'>
+                <>
                     <Link to={'/trayek'} className="btn text-white" style={{ backgroundColor: '#FFBF00' }}>Kembali</Link>
                     <section className='mb-5 mt-3'>
-                        <div className='text-center mb-2'>
-                            <h1>{dataAngkot.nama}</h1>
-                            <p className='text-muted'>{dataAngkot.trayek}</p>
-                        </div>
                         <div className="pb-4" style={{ boxShadow: "0 2px 2px -2px rgba(0,0,0,.4)" }}>
                             <div className="d-flex justify-content-center align-items-center pb-5">
-                                <div style={{ width: '70%' }}>
-                                    <Card>
-                                        <Card.Body style={{ height: '500px' }}><img src={dataAngkot.imageUrl} alt='foto' className='w-100' style={{ height: '100%', objectFit: 'cover' }} /></Card.Body>
-                                    </Card>
-                                </div>
+                                {/* <div style={{ width: '100%' }}> */}
+                                <Card className='w-100'>
+                                    <Card.Body className='d-flex justify-content-start gap-5' style={{ height: '370px' }}>
+                                        <div className="w-50">
+                                            <img src={dataAngkot.imageUrl} alt='foto' className='w-100' style={{ height: '100%', objectFit: 'cover' }} />
+                                        </div>
+                                        <div>
+                                            <h3 className='fw-semibold' style={{ color: '#690B51' }}>{dataAngkot.nama}</h3>
+                                            <div className='text-muted'><img src={routing} alt="" /> {dataAngkot.trayek}</div>
+                                        </div>
+                                    </Card.Body>
+                                </Card>
+                                {/* </div> */}
                             </div>
                         </div>
                     </section>
 
-                    <section>
+                    <section className='mb-5'>
                         {/* <Container> */}
-                        <h1 className='text-center mb-4'>Trayek</h1>
+                        <h1 className='text-center mb-5'>Trayek</h1>
                         <div className="row justify-content-center w-100">
                             <div className="col-12 col-md-6 mb-4">
                                 <Table bordered hover size="sm">
@@ -119,9 +125,9 @@ function TrayekDetail() {
                         </div>
                         {/* </Container> */}
                     </section>
-                </Container>
+                </>
             ) : (<p>Data Tidak Ditemukan</p>)}
-        </div>
+        </Container>
     )
 }
 

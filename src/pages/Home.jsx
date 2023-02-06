@@ -20,7 +20,7 @@ import { Card, Container } from "react-bootstrap";
 function Home() {
 
 	useEffect(() => {
-		document.title = 'Sipinter Ciamis - Info'
+		document.title = 'Info - SIPINTER Ciamis'
 	}, [])
 
 	return (
@@ -53,7 +53,7 @@ function Home() {
 						11 Tahun 2013.
 					</SwiperSlide>
 					<SwiperSlide>
-						Terminal Ciamis berada memiliki luas sebesar 17.180 M2 dan berlokasi
+						Terminal Ciamis memiliki luas sebesar 17.180 M2 dan berlokasi
 						di jalan Mr. Iwa Kusuma Sumantri, Indonesia, JL. Perintis Kemerdekaan,
 						No. 17, Ciamis, 46211, Indonesia, Ciamis.
 					</SwiperSlide>
@@ -73,7 +73,7 @@ function Home() {
 				marginBottom
 					: "80px"
 			}}>
-				<p className="text-center judul mt-lg-5 mt-3">Struktur Organisasi</p>
+				<h2 className="text-center judul mt-lg-5 mt-3 fw-semibold mb-4">Struktur Organisasi</h2>
 				<img className="img-fluid col-md-8 mt-2" style={{ borderRadius: "8px" }} src={bagan} alt="" />
 			</div>
 			{/* END STRUKTUR ORGANISASI */}
@@ -83,7 +83,7 @@ function Home() {
 				marginBottom
 					: "80px"
 			}}>
-				<p className="text-center judul mt-lg-5 mt-3">Denah Terminal Ciamis</p>
+				<h2 className="text-center judul mt-lg-5 mt-3 fw-semibold mb-4">Denah Terminal Ciamis</h2>
 				<img className="img-fluid col-md-8 p-3 mt-2" style={{ borderRadius: "8px", border: "1px solid #B9B9B9D9", boxShadow: " 0px 2px 4px 0px rgba(0, 0, 0, 0.25)" }} src={denah} alt="" />
 			</div>
 			{/* END DENAH TERMINAL */}
@@ -93,57 +93,74 @@ function Home() {
 				marginBottom
 					: "80px"
 			}}>
-				<p className="text-center judul mt-lg-5 mt-3 mb-4">Fasilitas Terminal Ciamis</p>
-				{/* DESKTOP */}
-				<Swiper
-					modules={[Navigation, Pagination]}
-					navigation={true}
-					effect
-					speed={800}
-					slidesPerView={3}
-					loop={true}
-					spaceBetween={30}
-					pagination={{
-						clickable: true,
-					}}
-					className="myswiper-lg col-md-7"
-				>
-					{/* {fasilitas.map((fasil) => (
+				<Container>
+					<h2 className="text-center judul mt-lg-5 mt-3 mb-4 fw-semibold">Fasilitas Terminal Ciamis</h2>
+					{/* DESKTOP */}
+					<Swiper
+						modules={[Navigation, Pagination]}
+						navigation={true}
+						effect
+						speed={800}
+						slidesPerView={1}
+						loop={true}
+						spaceBetween={30}
+						pagination={{
+							clickable: true,
+						}}
+						breakpoints={{
+							// when window width is >= 640px
+							640: {
+								width: 640,
+								slidesPerView: 3,
+							},
+							// when window width is >= 768px
+							768: {
+								width: 768,
+								slidesPerView: 3,
+							},
+						}}
+						className="mySwiper w-75 pb-5"
+					>
+						{/* {fasilitas.map((fasil) => (
 						<SwiperSlide className="col-md-3 flex-column mx-4" style={{ border: "1px solid #B9B9B9D9", borderRadius: "8px", height: "400px", boxShadow: " 0px 2px 4px 0px rgba(0, 0, 0, 0.25)" }}>
 							<img src={fasil.imageUrl} alt="" style={{ objectFit: "contain", borderRadius: "8px" }} className="p-2" />
 							<p style={{ fontWeight: "500" }} className="text-center">{fasil.nama}</p>
 						</SwiperSlide>
 					))} */}
-					{fasilitas.map((fasil) => (
-						<SwiperSlide className="">
-							<Card>
-								<Card.Body className="p-2">
-									<img src={fasil.imageUrl} alt="" style={{ objectFit: "contain", borderRadius: "7px" }} className="" />
-									<p style={{ fontWeight: "500" }} className="text-center mb-0">{fasil.nama}</p>
-								</Card.Body>
-							</Card>
+						{fasilitas.map((fasil) => (
+							<SwiperSlide className="">
+								<Card style={{ height: '300px', width: '100%' }}>
+									<Card.Img src={fasil.imageUrl} className='p-2 rounded-4'>
+										{/* <img src={fasil.imageUrl} alt="" style={{ objectFit: "cover", borderRadius: "7px" }} className="" /> */}
+									</Card.Img>
+									<Card.Body className="p-2">
+										<p style={{ fontWeight: "500" }} className="text-center mb-0">{fasil.nama}</p>
+									</Card.Body>
+								</Card>
 
-						</SwiperSlide>
-					))}
-				</Swiper>
-				
-				{/* MOBILE */}
-				<Swiper
-					modules={[Navigation, Pagination]}
-					navigation={true}
-					effect
-					speed={800}
-					slidesPerView={1}
-					loop
-					className="myswiper-sm col-md-7 col-10"
-				>
-					{fasilitas.map((fasil) => (
-						<SwiperSlide className="col-md-3 flex-column mx-4 pt-4" style={{ border: "1px solid #B9B9B9D9", borderRadius: "8px", height: "400px", boxShadow: " 0px 2px 4px 0px rgba(0, 0, 0, 0.25)" }}>
-							<img src={fasil.imageUrl} alt="" style={{ objectFit: "cover", borderRadius: "8px" }} className="p-2" />
-							<p style={{ fontWeight: "500" }} className="text-center">{fasil.nama}</p>
-						</SwiperSlide>
-					))}
-				</Swiper>
+							</SwiperSlide>
+						))}
+					</Swiper>
+
+					{/* MOBILE */}
+					{/* <Swiper
+						modules={[Navigation, Pagination]}
+						navigation={true}
+						effect
+						speed={800}
+						slidesPerView={1}
+						loop
+						className="myswiper-sm col-md-7 col-10"
+					>
+						{fasilitas.map((fasil) => (
+							<SwiperSlide className="col-md-3 flex-column mx-4 pt-4" style={{ border: "1px solid #B9B9B9D9", borderRadius: "8px", height: "400px", boxShadow: " 0px 2px 4px 0px rgba(0, 0, 0, 0.25)" }}>
+								<img src={fasil.imageUrl} alt="" style={{ objectFit: "cover", borderRadius: "8px" }} className="p-2" />
+								<p style={{ fontWeight: "500" }} className="text-center">{fasil.nama}</p>
+							</SwiperSlide>
+						))}
+					</Swiper> */}
+				</Container>
+
 			</div>
 			{/* END FASILITAS */}
 
@@ -165,14 +182,15 @@ function Home() {
 			<Container>
 				<div className="row justify-content-center align-items-center my-5">
 					<div className="col text-center py-5">
-						<div className='ms-auto me-auto mb-4' style={{ maxWidth: '350px', color: '#690B51' }} >
-							<h1 className="mb-0 fw-bold">Kami Membutuhkan <span style={{ color: '#FFBF00' }}>Kritik & Saran</span></h1>
+						<div className='ms-auto me-auto mb-4' style={{ maxWidth: '390px', color: '#690B51' }} >
+							<h1 className="mb-0 fw-bold">Kami Membutuhkan </h1>
+							<h1 style={{ color: '#FFBF00' }} className="mb-0 fw-bold">Kritik & Saran</h1>
 							<h1 className="fw-bold">Dari Anda</h1>
 						</div>
 						<div className='ms-auto me-auto mb-4' style={{ maxWidth: '700px' }}>
 							<p className="" style={{ color: '#8E8E8E' }}>Kritik dan saran dari Anda akan sangat membantu dalam proses perkembangan Terminal Ciamis. Tekan tombol dibawah untuk mengisi formulir.</p>
 						</div>
-						<a href="https://docs.google.com/forms/d/e/1FAIpQLSdePypaAdbPUsZwlX6CnybkJ40ARuXqZnG61KQmqY8jCpYqsw/viewform?vc=0&c=0&w=1&flr=0" target={"_blank"} rel={"noreferrer"} className="btn text-white rounded-pill" style={{ backgroundColor: '#FFBF00' }}>Isi Formulir</a>
+						<a href="https://docs.google.com/forms/d/e/1FAIpQLSdePypaAdbPUsZwlX6CnybkJ40ARuXqZnG61KQmqY8jCpYqsw/viewform?vc=0&c=0&w=1&flr=0" target={"_blank"} rel={"noreferrer"} className="btn text-white fw-semibold rounded-pill" style={{ backgroundColor: '#FFBF00' }}>Isi Formulir</a>
 					</div>
 				</div>
 			</Container>

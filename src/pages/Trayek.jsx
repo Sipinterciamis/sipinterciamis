@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Card, Container, ListGroup } from 'react-bootstrap';
+import { Card, Container, ListGroup, Table } from 'react-bootstrap';
 import angkots from '../data/angkot'
 import AKAP from '../data/AKAP';
 import AKDP from '../data/AKDP';
@@ -7,10 +7,10 @@ import petaTrayek1 from '../data/images/trayek/angkot-angdes.jpg'
 import petaTrayek2 from '../data/images/trayek/trayek-au-ciamis.png'
 import petaTrayek3 from '../data/images/trayek/zona-trayek-au-1.jpg'
 import petaTrayek4 from '../data/images/trayek/zona-trayek-au.jpg'
+import routing from "../data/images/detailWisata/routing.png"
 
 import background from "../data/images/wisata/wisata.png";
-import iconBuilding from "../data/images/wisata/icon/building.svg";
-import "./styles/wisata.css"
+// import "./styles/wisata.css"
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -28,23 +28,40 @@ import { Link } from 'react-router-dom';
 const Trayek = () => {
 
     useEffect(() => {
-        document.title = 'Trayek - Sipinter Ciamis'
+        document.title = 'Trayek - SIPINTER Ciamis'
     }, [])
 
-    const renderItem = (itemTujuan) => {
-        const tujuan = Array.isArray(itemTujuan) ? itemTujuan[0] : itemTujuan;
+    const renderItem = (id, itemTrayek, itemNamaPO, itemWaktu) => {
+        const waktu = Array.isArray(itemWaktu) ? itemWaktu[0] : itemWaktu;
 
         return (
             <>
-                {/* <ListGroup.Item className='ps-5'>{tujuan}</ListGroup.Item> */}
-
-                {Array.isArray(itemTujuan)
-                    ? itemTujuan
-                        // .slice(1)
-                        .map((name, index) => (
-                            <ListGroup.Item className='ps-5 border-bottom-0'>{name}</ListGroup.Item>
+                <tr>
+                    {Array.isArray(itemWaktu) ? (
+                        <>
+                            <td rowSpan={itemWaktu.length} style={{ verticalAlign: 'middle' }} className='text-center'>{id}</td>
+                            <td rowSpan={itemWaktu.length} style={{ verticalAlign: 'middle' }}>{itemTrayek}</td>
+                            <td rowSpan={itemWaktu.length} style={{ verticalAlign: 'middle' }}>{itemNamaPO}</td>
+                            <td className='text-center'>{waktu}</td>
+                        </>
+                    ) : (
+                        <>
+                            <td className='text-center'>{id}</td>
+                            <td>{itemTrayek}</td>
+                            <td>{itemNamaPO}</td>
+                            <td className='text-center'>{waktu}</td>
+                        </>
+                    )}
+                </tr>
+                {Array.isArray(itemWaktu)
+                    ? itemWaktu
+                        .slice(1)
+                        .map((item, index) => (
+                            <tr key={index}>
+                                <td className='text-center'>{item}</td>
+                            </tr>
                         ))
-                    : <ListGroup.Item className='ps-5'>{tujuan}</ListGroup.Item>
+                    : null
                 }
             </>
         );
@@ -55,77 +72,16 @@ const Trayek = () => {
             {/* START SECTION HERO */}
             <div
                 className="d-flex justify-content-center"
-                style={{ backgroundImage: `url(${background})` }}
+                style={{ backgroundImage: `url(${background})`, backgroundSize: 'cover' }}
             >
                 <Container className="d-flex justify-content-center flex-column align-items-center align-items-lg-start">
-                    <div className="">
-                        <h3 style={{ marginTop: "60px" }} className="text-white text-center text-lg-start">
-                            Cari Trayek
-                        </h3>
-                        <p className="text-white mb-5">Sesuai tujuanmu disini</p>
-                    </div>
-                    <div className="d-flex justify-content-center w-100">
-                        <div className="search-trayek-filter gap-3 col-md-6 col-12 py-4 mt-5 d-flex flex-lg-row flex-column justify-content-around align-items-center"
-                            style={{
-                                backgroundColor: "white",
-                                borderRadius: "10px",
-                                marginBottom: "80px",
-                            }}>
-                            <div className="asal ms-3 d-flex flex-column align-items-start">
-                                <span className='text-muted fw-bold'>Dari</span>
-                                <div className="d-flex gap-2">
-                                    <img
-                                        src={iconBuilding}
-                                        alt="icon"
-                                        style={{ position: "", marginLeft: "" }}
-                                    />
-                                    <span>Ciamis</span>
-                                </div>
-                            </div>
-                            <div className='tujuan ms-3 d-flex flex-column align-items-start bg-bg-warning'>
-                                <span className='text-muted fw-bold'>Ke</span>
-                                <div className="d-flex gap-2">
-                                    <img
-                                        src={iconBuilding}
-                                        alt="icon"
-                                        style={{ position: "", marginLeft: "" }}
-                                    />
-                                    <span>Ciamis</span>
-                                </div>
-
-                            </div>
-                            {/* <div className="tujuan ms-lg-0 ms-3 d-flex align-items-center">
-                                <img
-                                    src={iconLocation}
-                                    alt="icon"
-                                    style={{ position: "absolute", marginLeft: "20px" }}
-                                />
-                                <input
-                                    placeholder="Semua lokasi"
-                                    type="text"
-                                    className="py-3"
-                                    style={{
-                                        backgroundColor: "white",
-                                        paddingLeft: "60px",
-                                        borderRadius: "10px",
-                                        border: "1px solid #B9B9B9",
-                                    }}
-                                />
-                            </div> */}
-
-                        </div>
-                    </div>
-                    <div className='m-auto'>
-                        <button
-                            className="py-lg-3 px-4 py-2"
-                            style={{
-                                backgroundColor: "#FFBF00",
-                                border: "none",
-                                borderRadius: "10px",
-                                color: "white",
-                            }}
-                        >Cari
-                        </button>
+                    <div className="text-center w-100 judul-header">
+                        <h1 className="text-white fw-semibold">
+                            Temukan Info Trayek
+                        </h1>
+                        <p className="text-white">
+                            Cari info trayek angkot dan bus disini
+                        </p>
                     </div>
                 </Container>
             </div >
@@ -133,42 +89,57 @@ const Trayek = () => {
 
             {/* START PETA RUTE TRAYEK */}
             <div className="mb-5" >
-                <h1 className="text-center mt-5 mb-4">Peta Rute Trayek</h1>
+                <h2 className="text-center mt-5 mb-5 fw-semibold">Peta Rute Trayek</h2>
                 <Container className="pb-4" style={{ boxShadow: "0 2px 2px -2px rgba(0,0,0,.4)" }}>
                     <div className="d-flex justify-content-center align-items-center pb-5">
-                        <div style={{ width: '70%' }}>
-                            <Swiper navigation={true} modules={[Navigation]} className="mySwiper pb-2">
-                                <SwiperSlide>
-                                    <Card>
-                                        <Card.Body><img src={petaTrayek1} alt='peta1' /></Card.Body>
-                                    </Card>
-                                </SwiperSlide>
-                                <SwiperSlide>
-                                    <Card>
-                                        <Card.Body><img src={petaTrayek2} alt='peta2' /></Card.Body>
-                                    </Card>
-                                </SwiperSlide>
-                                <SwiperSlide>
-                                    <Card>
-                                        <Card.Body><img src={petaTrayek3} alt='peta3' /></Card.Body>
-                                    </Card>
-                                </SwiperSlide>
-                                <SwiperSlide>
-                                    <Card>
-                                        <Card.Body><img src={petaTrayek4} alt='peta4' /></Card.Body>
-                                    </Card>
-                                </SwiperSlide>
-                            </Swiper>
-                        </div>
+                        {/* <div style={{ width: '100%' }}> */}
+                        <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
+                            <SwiperSlide>
+                                <Card className='w-75'>
+                                    <Card.Body><img src={petaTrayek1} alt='peta1' /></Card.Body>
+                                </Card>
+                            </SwiperSlide>
+                            <SwiperSlide>
+                                <Card className='w-75'>
+                                    <Card.Body><img src={petaTrayek2} alt='peta2' /></Card.Body>
+                                </Card>
+                            </SwiperSlide>
+                            <SwiperSlide>
+                                <Card className='w-75'>
+                                    <Card.Body><img src={petaTrayek3} alt='peta3' /></Card.Body>
+                                </Card>
+                            </SwiperSlide>
+                            <SwiperSlide>
+                                <Card className='w-75'>
+                                    <Card.Body><img src={petaTrayek4} alt='peta4' /></Card.Body>
+                                </Card>
+                            </SwiperSlide>
+                        </Swiper>
+                        {/* </div> */}
                     </div>
                 </Container>
             </div>
             {/* END SECTION PETA RUTE TRAYEK */}
 
             {/* START DAFTAR ANGKOT */}
-            <div className="mb-5" >
-                <h1 className="text-center mt-5 mb-4">Daftar Angkot Terminal Ciamis</h1>
+            <div className="mb-5 px-4 px-md-0" >
+                <h2 className="text-center mt-5 mb-4 fw-semibold">Daftar Angkot Terminal Ciamis</h2>
                 <Container className="mt-5 pb-4" style={{ boxShadow: "0 2px 2px -2px rgba(0,0,0,.4)" }}>
+                    {/* <div className="list-trayek">
+                        {angkots.map((angkot) => (
+                            <div className="row justify-content-between align-items-center px-4 py-3" style={{ borderBottom: "1px solid #B9B9B9D9" }}>
+                                <div style={{ width: "fit-content" }}>
+                                    <p className="mb-2" style={{ color: "#690B51", fontWeight: "700" }}>Angkot 1</p>
+                                    <div className="d-flex flex-row gap-2">
+                                        <img src={routing} alt="" />
+                                        <p className="mb-0 routing">{angkot.trayek}</p>
+                                    </div>
+                                </div>
+                                <p className="px-3 py-1 mb-0 routing" style={{ fontWeight: "500", color: "#FFBF00", backgroundColor: "#FFBF0026", borderRadius: "50px", width: "fit-content" }}>Lihat Detail</p>
+                            </div>
+                        ))}
+                    </div> */}
+
                     <div className="d-flex align-items-center pb-5 ">
                         <ListGroup className='w-100'>
                             {angkots.map((angkot) => (
@@ -178,7 +149,7 @@ const Trayek = () => {
                                 >
                                     <div className="ms-2 me-auto">
                                         <div className="fw-semibold" style={{ color: '#690B51' }}>{angkot.nama}</div>
-                                        <div className='text-muted'>{angkot.trayek}</div>
+                                        <div className='text-muted'><img src={routing} alt="" /> {angkot.trayek}</div>
                                     </div>
                                     <Link to={`/trayek/${angkot.id}`} className='rounded-pill text-decoration-none py-2 px-4' style={{ backgroundColor: '#FFBF0026', color: '#FFBF00' }}>Lihat Detail</Link>
                                 </ListGroup.Item>
@@ -191,93 +162,133 @@ const Trayek = () => {
             {/* END SECTION DAFTAR ANGKOT */}
 
             {/* START DATA BUS */}
-            <div className="mb-5">
-                <h1 className="text-center mt-5 mb-4">Data Bus AKAP dan AKDP di Terminal Ciamis</h1>
+            <div className="mb-5 px-4 px-md-0">
                 <Container className="mt-5 pb-4">
+                    <h2 className="text-center mt-5 mb-5 fw-semibold">Data Bus AKAP dan AKDP di Terminal Ciamis</h2>
                     {/* START AKAP */}
-                    <div className='p-3 rounded-2 text-white mb-3 fw-semibold' style={{ backgroundColor: '#690B51' }}>
+                    <div className='p-3 rounded-2 text-white mb-3 fw-semibold' style={{ backgroundColor: '#2F1A2A' }}>
                         BUS AKAP
                     </div>
-                    <div className="row justify-content-center align-items-center mb-md-5">
-                        <div className="col-11 col-md-6 overflow-auto mb-5 mb-md-0" style={{ height: '450px' }}>
-                            <div className="border rounded p-2">
-                                <ListGroup variant="flush">
-                                    <ListGroup.Item className='fw-semibold' style={{ color: '#690B51' }}>AKAP Besar</ListGroup.Item>
-                                    {AKAP.map((akap) => (
+                    <div className="row justify-content-center align-items-start mb-md-5">
+                        <div className="col-12 col-md-6 overflow-auto mb-5 mb-md-0" style={{ height: '450px' }}>
+                            <Table bordered hover size="sm">
+                                <thead>
+                                    <tr className='text-center text-white text-uppercase' style={{ backgroundColor: '#690B51' }}>
+                                        <th className='fw-semibold' style={{ width: '10%' }}>No</th>
+                                        <th id='akap-besar' className='fw-semibold' colSpan={4}>AKAP Besar</th>
+                                    </tr>
+                                    <tr className='text-center text-white fw-semibold text-uppercase' style={{ backgroundColor: '#690B51' }}>
+                                        <th></th>
+                                        <th headers='akap-besar' className='fw-semibold' style={{ width: 'auto' }}>Trayek</th>
+                                        <th headers='akap-besar' className='fw-semibold' style={{ width: 'auto' }}>Nama PO</th>
+                                        <th headers='akap-besar' className='fw-semibold' style={{ width: 'auto' }}>Waktu</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {AKAP.map(akap => (
                                         <>
                                             {akap.besar.map((data) => (
                                                 <>
-                                                    <ListGroup.Item className='fw-semibold' style={{ borderBottomColor: 'rgba(185, 185, 185, 0.1)' }}>{data.namaPO}</ListGroup.Item>
-                                                    {renderItem(data.tujuan)}
-                                                    {/* <ListGroup.Item className='ps-5'>{data.tujuan}</ListGroup.Item> */}
+                                                    {renderItem(data.id, data.trayek, data.namaPO, data.waktu)}
                                                 </>
                                             ))}
                                         </>
                                     ))}
-                                </ListGroup>
-                            </div>
+                                </tbody>
+                            </Table>
                         </div>
-                        <div className="col-11 col-md-6 overflow-auto" style={{ height: '450px' }}>
-                            <div className="border rounded p-2">
-                                <ListGroup variant="flush">
-                                    <ListGroup.Item className='fw-semibold' style={{ color: '#690B51' }}>AKAP Sedang</ListGroup.Item>
-                                    {AKAP.map((akap) => (
+                        <div className="col-12 col-md-6 overflow-auto" style={{ height: '350px' }}>
+                            <Table bordered hover size="sm">
+                                <thead>
+                                    <tr className='text-center text-white text-uppercase' style={{ backgroundColor: '#690B51' }}>
+                                        <th className='fw-semibold' style={{ width: '10%' }}>No</th>
+                                        <th id='segmen-berangkat' className='fw-semibold' colSpan={4}>AKAP Sedang</th>
+                                    </tr>
+                                    <tr className='text-center text-white fw-semibold text-uppercase' style={{ backgroundColor: '#690B51' }}>
+                                        <th></th>
+                                        <th headers='segmen-berangkat' className='fw-semibold' style={{ width: 'auto' }}>Trayek</th>
+                                        <th headers='segmen-berangkat' className='fw-semibold' style={{ width: 'auto' }}>Nama PO</th>
+                                        <th headers='segmen-berangkat' className='fw-semibold' style={{ width: 'auto' }}>Waktu</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {AKAP.map(akap => (
                                         <>
                                             {akap.sedang.map((data) => (
                                                 <>
-                                                    <ListGroup.Item className='fw-semibold' style={{ borderBottomColor: 'rgba(185, 185, 185, 0.1)' }}>{data.namaPO}</ListGroup.Item>
-                                                    {renderItem(data.tujuan)}
-                                                    {/* <ListGroup.Item className='ps-5'>{data.tujuan}</ListGroup.Item> */}
+                                                    {renderItem(data.id, data.trayek, data.namaPO, data.waktu)}
                                                 </>
                                             ))}
                                         </>
                                     ))}
-                                </ListGroup>
-                            </div>
+                                </tbody>
+                            </Table>
                         </div>
                     </div>
                     {/* END AKAP */}
 
                     {/* START AKDP */}
                     <div className="mt-1">
-                        <div className='p-3 rounded-2 text-white mb-3 fw-semibold' style={{ backgroundColor: '#690B51' }}>
+                        <div className='p-3 rounded-2 text-white mb-3 fw-semibold' style={{ backgroundColor: '#2F1A2A' }}>
                             BUS AKDP
                         </div>
                         <div className="row justify-content-center align-items-center mb-3">
-                            <div className="col-11 col-md-6 overflow-auto" style={{ height: '450px' }}>
-                                <div className="border rounded p-2">
-                                    <ListGroup variant="flush">
-                                        <ListGroup.Item className='fw-semibold' style={{ color: '#690B51' }}>AKDP Besar</ListGroup.Item>
-                                        {AKDP.map((akdp) => (
-                                            <>
-                                                {akdp.besar.map((data) => (
-                                                    <>
-                                                        <ListGroup.Item className='fw-semibold' style={{ borderBottomColor: 'rgba(185, 185, 185, 0.1)' }}>{data.namaPO}</ListGroup.Item>
-                                                        {renderItem(data.tujuan)}
-                                                        {/* <ListGroup.Item className='ps-5'>{data.tujuan}</ListGroup.Item> */}
-                                                    </>
-                                                ))}
-                                            </>
-                                        ))}
-                                    </ListGroup>
+                            <div className="col-12 col-md-6 overflow-auto mb-4 mb-md-0" style={{ height: '450px' }}>
+                                <div className="">
+                                    <Table bordered hover size="sm">
+                                        <thead>
+                                            <tr className='text-center text-white text-uppercase' style={{ backgroundColor: '#690B51' }}>
+                                                <th className='fw-semibold' style={{ width: '10%' }}>No</th>
+                                                <th id='segmen-berangkat' className='fw-semibold' colSpan={4}>AKDP Besar</th>
+                                            </tr>
+                                            <tr className='text-center text-white fw-semibold text-uppercase' style={{ backgroundColor: '#690B51' }}>
+                                                <th></th>
+                                                <th headers='segmen-berangkat' className='fw-semibold' style={{ width: 'auto' }}>Trayek</th>
+                                                <th headers='segmen-berangkat' className='fw-semibold' style={{ width: 'auto' }}>Nama PO</th>
+                                                <th headers='segmen-berangkat' className='fw-semibold' style={{ width: 'auto' }}>Waktu</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {AKDP.map(akdp => (
+                                                <>
+                                                    {akdp.besar.map((data) => (
+                                                        <>
+                                                            {renderItem(data.id, data.trayek, data.namaPO, data.waktu)}
+                                                        </>
+                                                    ))}
+                                                </>
+                                            ))}
+                                        </tbody>
+                                    </Table>
                                 </div>
                             </div>
-                            <div className="col-11 col-md-6 overflow-auto" style={{ height: '450px' }}>
-                                <div className="border rounded p-2">
-                                    <ListGroup variant="flush">
-                                        <ListGroup.Item className='fw-semibold' style={{ color: '#690B51' }}>AKDP Sedang</ListGroup.Item>
-                                        {AKDP.map((akdp) => (
-                                            <>
-                                                {akdp.sedang.map((data) => (
-                                                    <>
-                                                        <ListGroup.Item className='fw-semibold' style={{ borderBottomColor: 'rgba(185, 185, 185, 0.1)' }}>{data.namaPO}</ListGroup.Item>
-                                                        {renderItem(data.tujuan)}
-                                                        {/* <ListGroup.Item className='ps-5'>{data.tujuan}</ListGroup.Item> */}
-                                                    </>
-                                                ))}
-                                            </>
-                                        ))}
-                                    </ListGroup>
+                            <div className="col-12 col-md-6 overflow-auto" style={{ height: '450px' }}>
+                                <div className="">
+                                    <Table bordered hover size="sm">
+                                        <thead>
+                                            <tr className='text-center text-white text-uppercase' style={{ backgroundColor: '#690B51' }}>
+                                                <th className='fw-semibold' style={{ width: '10%' }}>No</th>
+                                                <th id='segmen-berangkat' className='fw-semibold' colSpan={4}>AKDP Sedang</th>
+                                            </tr>
+                                            <tr className='text-center text-white fw-semibold text-uppercase' style={{ backgroundColor: '#690B51' }}>
+                                                <th></th>
+                                                <th headers='segmen-berangkat' className='fw-semibold' style={{ width: 'auto' }}>Trayek</th>
+                                                <th headers='segmen-berangkat' className='fw-semibold' style={{ width: 'auto' }}>Nama PO</th>
+                                                <th headers='segmen-berangkat' className='fw-semibold' style={{ width: 'auto' }}>Waktu</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {AKDP.map(akdp => (
+                                                <>
+                                                    {akdp.sedang.map((data) => (
+                                                        <>
+                                                            {renderItem(data.id, data.trayek, data.namaPO, data.waktu)}
+                                                        </>
+                                                    ))}
+                                                </>
+                                            ))}
+                                        </tbody>
+                                    </Table>
                                 </div>
                             </div>
                         </div>

@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Maps({ mapSrc, mapWidth = '500', mapHeight = '400' }) {
+function Maps({ mapSrc, mapWidth = '100%', mapHeight = '100%' }) {
     return (
         <>
             <iframe title='map' width={mapWidth} height={mapHeight} src={mapSrc} frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
