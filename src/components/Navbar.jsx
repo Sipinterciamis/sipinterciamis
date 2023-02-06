@@ -27,17 +27,17 @@ const Navigation = () => {
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="ms-auto">
               <Nav.Link>
-                <Link className={"navlink" + (url === "/" ? " active" : "")} to="/" style={{ fontSize: '18px' }}>
+                <Link className={"navlink" + (url === "/" ? " active" : "")} to="/">
                   Info
                 </Link>
               </Nav.Link>
               <Nav.Link>
-                <Link className={"navlink" + (url === "/trayek" ? " active" : "")} to="/trayek" style={{ fontSize: '18px' }}>
+                <Link className={"navlink" + (url === "/trayek" ? " active" : "")} to="/trayek">
                   Trayek
                 </Link>
               </Nav.Link>
               <Nav.Link>
-                <Link className={"navlink" + (url === "/wisata" ? " active" : "")} to="/wisata" style={{ fontSize: '18px' }}>
+                <Link className={"navlink" + (url === "/wisata" ? " active" : "")} to="/wisata">
                   Wisata
                 </Link>
               </Nav.Link>
