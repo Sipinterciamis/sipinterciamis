@@ -2,7 +2,8 @@ import { Container } from "react-bootstrap";
 import bgWisata from "../data/images/wisata/bgWisata.png"
 import MyCard from "../components/Card";
 import wisata from "../data/wisata";
-import "./styles/wisata.css";
+// import "./styles/wisata.css";
+import "./styles/wisata.scss";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
@@ -12,7 +13,7 @@ const Wisata = () => {
 	}, []);
 
 	return (
-		<div>
+		<div className="detail-wisata">
 			{/* START SECTION HERO */}
 			<div
 				className="d-flex justify-content-center"
@@ -34,21 +35,23 @@ const Wisata = () => {
 
 			{/* START SECTION WISATA TERPOPULER */}
 			<div className="mb-5">
-				<h2 className="text-center mt-5 mb-5 wisata-populer fw-semibold">Wisata Terpopuler</h2>
+				<h2 className="text-center mt-5 mb-4 wisata-populer fw-semibold">Wisata Terpopuler</h2>
 				<Container
 					className="pb-4"
 					style={{ boxShadow: "0 2px 2px -2px rgba(0,0,0,.4)" }}
 				>
-					<div className="d-flex flex-wrap gap-4 justify-content-center pb-5">
+					<div className="row justify-content-center pb-5 gap-4">
 						{wisata.map(data => (
-							<Link to={`/wisata/${data.slug}`} className="text-decoration-none text-dark">
-								<MyCard
-									kategori="Wisata Alam"
-									judul={data.nama}
-									// lokasi="Sandingtaman, Panjalu, Ciamis, Jawa Barat"
-									image={data.imageUrl}
-								/>
-							</Link>
+							<div className="col-10 col-sm-5 col-md-5">
+								<Link to={`/wisata/${data.slug}`} className="text-decoration-none text-dark">
+									<MyCard
+										kategori="Wisata Alam"
+										judul={data.nama}
+										// lokasi="Sandingtaman, Panjalu, Ciamis, Jawa Barat"
+										image={data.imageUrl}
+									/>
+								</Link>
+							</div>
 						))}
 					</div>
 				</Container>

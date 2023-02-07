@@ -98,13 +98,17 @@ function Home() {
 					{/* DESKTOP */}
 					<div style={{ height: '400px' }}>
 						<Swiper
-							modules={[Navigation, Pagination]}
-							navigation={true}
+							modules={[Autoplay, Navigation, Pagination]}
+							navigation={false}
 							effect
 							speed={800}
 							slidesPerView={1}
 							loop={true}
-							spaceBetween={30}
+							spaceBetween={20}
+							autoplay={{
+								delay: 2500,
+								disableOnInteraction: false,
+							}}
 							pagination={{
 								clickable: true,
 							}}
@@ -112,9 +116,10 @@ function Home() {
 								640: {
 									width: 640,
 									slidesPerView: 3,
+									spaceBetween: 30
 								},
 								768: {
-									width: 768,
+									width: 668,
 									slidesPerView: 3,
 								},
 							}}
@@ -164,9 +169,9 @@ function Home() {
 			>
 				<Container className="d-flex" style={{ zIndex: 2 }}>
 					{/* <div className=""> */}
-					<h3 className="text-white text-center text-lg-start">
+					<h2 className="text-white text-center text-lg-start">
 						Terdapat <span style={{ color: '#FFBF00' }}>56</span> toko di lingkungan Terminal Ciamis
-					</h3>
+					</h2>
 					{/* </div> */}
 				</Container>
 			</div>
@@ -174,17 +179,17 @@ function Home() {
 
 			{/* START KRITIK SARAN */}
 			<Container>
-				<div className="row justify-content-center align-items-center my-5">
+				<div className="row justify-content-center align-items-center my-5 kritik-saran">
 					<div className="col text-center py-5">
-						<div className='ms-auto me-auto mb-4' style={{ maxWidth: '390px', color: '#690B51' }} >
-							<h1 className="mb-0 fw-bold">Kami Membutuhkan </h1>
-							<h1 style={{ color: '#FFBF00' }} className="mb-0 fw-bold">Kritik & Saran</h1>
-							<h1 className="fw-bold">Dari Anda</h1>
+						<div className='ms-auto me-auto mb-4 kritik-saran__heading' >
+							<h2 className="mb-0 fw-bold">Kami Membutuhkan </h2>
+							<h2 style={{ color: '#FFBF00' }} className="mb-0 fw-bold">Kritik & Saran</h2>
+							<h2 className="fw-bold">Dari Anda</h2>
 						</div>
-						<div className='ms-auto me-auto mb-4' style={{ maxWidth: '700px' }}>
-							<p className="" style={{ color: '#8E8E8E' }}>Kritik dan saran dari Anda akan sangat membantu dalam proses perkembangan Terminal Ciamis. Tekan tombol dibawah untuk mengisi formulir.</p>
+						<div className='ms-auto me-auto mb-4 kritik-saran__content'>
+							<p>Kritik dan saran dari Anda akan sangat membantu dalam proses perkembangan Terminal Ciamis. Tekan tombol dibawah untuk mengisi formulir.</p>
 						</div>
-						<a href="https://docs.google.com/forms/d/e/1FAIpQLSdePypaAdbPUsZwlX6CnybkJ40ARuXqZnG61KQmqY8jCpYqsw/viewform?vc=0&c=0&w=1&flr=0" target={"_blank"} rel={"noreferrer"} className="btn text-white fw-semibold rounded-pill" style={{ backgroundColor: '#FFBF00' }}>Isi Formulir</a>
+						<a href="https://docs.google.com/forms/d/e/1FAIpQLSdePypaAdbPUsZwlX6CnybkJ40ARuXqZnG61KQmqY8jCpYqsw/viewform?vc=0&c=0&w=1&flr=0" target={"_blank"} rel={"noreferrer"} className="text-white fw-semibold rounded-pill kritik-saran__btn">Isi Formulir</a>
 					</div>
 				</div>
 			</Container>

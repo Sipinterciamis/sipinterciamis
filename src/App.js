@@ -7,6 +7,7 @@ import Trayek from './pages/Trayek';
 import Footer from './components/Footer';
 import TrayekDetail from './pages/TrayekDetail';
 import WisataDetail from './pages/WisataDetail';
+import ScrollToTop from './components/scrollToTop.jsx';
 
 // import Footer from './components/Footer';
 
@@ -14,6 +15,7 @@ function App() {
 	return (
 		<div className="">
 			<Navbar />
+			<ScrollToTop />
 			<Routes>
 				<Route path="/" element={<Home />} />
 				<Route path="/trayek" element={<Trayek />} />

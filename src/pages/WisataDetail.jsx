@@ -1,5 +1,5 @@
 import dataWisata from "../data/wisata"
-import './styles/style.scss'
+import './styles/wisata.scss'
 import { Card, Container } from "react-bootstrap"
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
@@ -17,19 +17,19 @@ const WisataDetail = () => {
     }, [slug]);
 
     return (
-        <div className="detail-wisata">
+        <div className="detail-wisata mb-5">
             <Container>
                 {wisata ? (
                     <>
-                        <h2 className="mt-4 mb-lg-5 text-center title fw-semibold">{wisata.nama}</h2>
-                        <div className="row detail-wisata-header justify-content-center gap-4">
-                            <div className="col-md-5 col-11">
-                                <div className="d-flex flex-column col-md-9 col-12 w-100">
-                                    <img style={{ width: '100%', height: "auto", objectFit: "contain" }} src={wisata.imageUrl} alt="" />
-                                    <p className="text-center" style={{ fontSize: "16px", fontStyle: "italic", fontWeight: "400", color: "rgba(142, 142, 142, 1)" }}>Sumber: {wisata.source}</p>
-                                </div>
+                        <h2 className="mt-4 mb-lg-5 text-center fw-semibold mb-4">{wisata.nama}</h2>
+                        <div className="row  justify-content-center gap-4">
+                            <div className="col-11 col-md-5 ">
+                                {/* <div className="d-flex flex-column col-md-9 col-12 w-100"> */}
+                                <img className="img-fluid rounded-2" style={{ width: '100%', height: "auto", objectFit: "cover" }} src={wisata.imageUrl} alt={wisata.nama} />
+                                <p className="text-center text-muted" style={{ fontStyle: "italic", fontWeight: "400" }}>Sumber: {wisata.source}</p>
+                                {/* </div> */}
                             </div>
-                            <div className="col-md-6 col-11 px-0">
+                            <div className="col-11 col-md-6  px-0">
                                 <Card className="w-100">
                                     <Card.Body>
                                         <p className="fw-semibold">Lokasi:</p>

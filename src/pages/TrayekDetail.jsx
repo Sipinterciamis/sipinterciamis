@@ -4,6 +4,7 @@ import angkots from '../data/angkot';
 import routing from "../data/images/detailWisata/routing.png"
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import "./styles/trayek.scss"
 
 function TrayekDetail() {
     const { idAngkot } = useParams();
@@ -50,34 +51,52 @@ function TrayekDetail() {
     };
 
     return (
-        <Container className='mt-5'>
+        <Container className='mt-5 trayek'>
             {dataAngkot ? (
                 <>
                     <Link to={'/trayek'} className="btn text-white" style={{ backgroundColor: '#FFBF00' }}>Kembali</Link>
                     <section className='mb-5 mt-3'>
                         <div className="pb-4" style={{ boxShadow: "0 2px 2px -2px rgba(0,0,0,.4)" }}>
-                            <div className="d-flex justify-content-center align-items-center pb-5">
-                                {/* <div style={{ width: '100%' }}> */}
-                                <Card className='w-100'>
-                                    <Card.Body className='d-flex justify-content-start gap-5' style={{ height: '370px' }}>
+                            {/* <div className="d-flex justify-content-center align-items-center pb-5"> */}
+                            {/* <div style={{ width: '100%' }}> */}
+                            <Card className='w-100'>
+                                <div class="row g-0">
+                                    <div class="col-md-6">
+                                        {/* <div > */}
+                                        <img src={dataAngkot.imageUrl} alt='foto' className='img-fluid w-100' style={{ height: '240px', objectFit: 'cover' }} />
+                                        {/* </div> */}
+                                    </div>
+                                    <div class="col-md-6">
+                                        <Card.Body >
+                                            <h2 className='fw-semibold' style={{ color: '#690B51' }}>{dataAngkot.nama}</h2>
+                                            <div className='text-muted rute__detail'><img src={routing} alt="" />
+                                                <small> {dataAngkot.trayek}</small>
+                                            </div>
+                                        </Card.Body>
+                                    </div>
+                                </div>
+                            </Card>
+                            {/* <Card.Body className='d-flex justify-content-start gap-5' style={{ height: '370px' }}>
                                         <div className="w-50">
                                             <img src={dataAngkot.imageUrl} alt='foto' className='w-100' style={{ height: '100%', objectFit: 'cover' }} />
                                         </div>
                                         <div>
-                                            <h3 className='fw-semibold' style={{ color: '#690B51' }}>{dataAngkot.nama}</h3>
-                                            <div className='text-muted'><img src={routing} alt="" /> {dataAngkot.trayek}</div>
+                                            <h2 className='fw-semibold' style={{ color: '#690B51' }}>{dataAngkot.nama}</h2>
+                                            <div className='text-muted rute'><img src={routing} alt="" />
+                                                <small> {dataAngkot.trayek}</small>
+                                            </div>
                                         </div>
                                     </Card.Body>
-                                </Card>
-                                {/* </div> */}
-                            </div>
+                                </Card> */}
+                            {/* </div> */}
+                            {/* </div> */}
                         </div>
                     </section>
 
-                    <section className='mb-5'>
+                    <section className='mb-4'>
                         {/* <Container> */}
-                        <h1 className='text-center mb-5'>Trayek</h1>
-                        <div className="row justify-content-center w-100">
+                        <h2 className='text-center fw-semibold mb-4'>Trayek</h2>
+                        <div className="row justify-content-center trayek__detail">
                             <div className="col-12 col-md-6 mb-4">
                                 <Table bordered hover size="sm">
                                     <thead>

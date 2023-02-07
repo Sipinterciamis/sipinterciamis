@@ -10,7 +10,7 @@ import petaTrayek4 from '../data/images/trayek/zona-trayek-au.jpg'
 import routing from "../data/images/detailWisata/routing.png"
 
 import background from "../data/images/wisata/wisata.png";
-// import "./styles/wisata.css"
+import "./styles/trayek.scss"
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -68,7 +68,7 @@ const Trayek = () => {
     };
 
     return (
-        <div>
+        <div className='trayek'>
             {/* START SECTION HERO */}
             <div
                 className="d-flex justify-content-center"
@@ -89,7 +89,7 @@ const Trayek = () => {
 
             {/* START PETA RUTE TRAYEK */}
             <div className="mb-5" >
-                <h2 className="text-center mt-5 mb-5 fw-semibold">Peta Rute Trayek</h2>
+                <h2 className="text-center mt-5 mb-4 fw-semibold">Peta Rute Trayek</h2>
                 <Container className="pb-4" style={{ boxShadow: "0 2px 2px -2px rgba(0,0,0,.4)" }}>
                     <div className="d-flex justify-content-center align-items-center pb-5">
                         {/* <div style={{ width: '100%' }}> */}
@@ -124,7 +124,7 @@ const Trayek = () => {
             {/* START DAFTAR ANGKOT */}
             <div className="mb-5 px-4 px-md-0 data-angkot">
                 <h2 className="text-center mt-5 mb-4 fw-semibold">Daftar Angkot Terminal Ciamis</h2>
-                <Container className="mt-5 pb-4" style={{ boxShadow: "0 2px 2px -2px rgba(0,0,0,.4)" }}>
+                <Container className="pb-3" style={{ boxShadow: "0 2px 2px -2px rgba(0,0,0,.4)" }}>
                     {/* <div className="list-trayek">
                         {angkots.map((angkot) => (
                             <div className="row justify-content-between align-items-center px-4 py-3" style={{ borderBottom: "1px solid #B9B9B9D9" }}>
@@ -147,30 +147,37 @@ const Trayek = () => {
                                     as="li"
                                     className="d-flex justify-content-between align-items-center"
                                 >
-                                    <div className="ms-2 me-auto">
-                                        <div className="fw-semibold" style={{ color: '#690B51' }}>{angkot.nama}</div>
-                                        <div className='text-muted'><img src={routing} alt="" /> {angkot.trayek}</div>
+                                    <div className="ms-2">
+                                        <div className="fw-semibold" style={{ color: '#690B51' }}>
+                                            <p className='mb-0'>
+                                                {angkot.nama}
+                                            </p>
+                                        </div>
+                                        <div className='text-muted rute'><img src={routing} alt="" /> <small>
+                                            {angkot.trayek}
+                                        </small>
+                                        </div>
                                     </div>
-                                    <Link to={`/trayek/${angkot.id}`} className='rounded-pill text-decoration-none py-2 px-4' style={{ backgroundColor: '#FFBF0026', color: '#FFBF00' }}>Lihat Detail</Link>
+                                    <Link to={`/trayek/${angkot.id}`} className='trayek__detail-btn rounded-pill text-decoration-none' >Lihat Detail</Link>
                                 </ListGroup.Item>
                             ))}
 
                         </ListGroup>
                     </div>
                 </Container>
-            </div>
+            </div >
             {/* END SECTION DAFTAR ANGKOT */}
 
             {/* START DATA BUS */}
             <div className="mb-5 px-4 px-md-0">
-                <Container className="mt-5 pb-4">
-                    <h2 className="text-center mt-5 mb-5 fw-semibold">Data Bus AKAP dan AKDP di Terminal Ciamis</h2>
+                <Container className="mt-5 pb-4 bus">
+                    <h2 className="text-center mt-5 mb-4 fw-semibold">Data Bus AKAP dan AKDP di Terminal Ciamis</h2>
                     {/* START AKAP */}
-                    <div className='p-3 rounded-2 text-white mb-3 fw-semibold' style={{ backgroundColor: '#2F1A2A' }}>
+                    <div className='p-3 rounded-2 text-white mb-3 fw-semibold bus__kategori'>
                         BUS AKAP
                     </div>
                     <div className="row justify-content-center align-items-start mb-md-5">
-                        <div className="col-12 col-md-6 overflow-auto mb-5 mb-md-0" style={{ height: '450px' }}>
+                        <div className="col-12 col-md-6 overflow-auto mb-3 mb-md-0 border-bottom" style={{ height: '450px' }}>
                             <Table bordered hover size="sm">
                                 <thead className='' style={{ position: 'sticky', top: '0' }}>
                                     <tr className='text-center text-white text-uppercase' style={{ backgroundColor: '#690B51' }}>
@@ -197,7 +204,7 @@ const Trayek = () => {
                                 </tbody>
                             </Table>
                         </div>
-                        <div className="col-12 col-md-6 overflow-auto" style={{ height: '350px' }}>
+                        <div className="col-12 col-md-6 overflow-auto mb-3" style={{ height: '300px' }}>
                             <Table bordered hover size="sm">
                                 <thead style={{ position: 'sticky', top: '0' }}>
                                     <tr className='text-center text-white text-uppercase' style={{ backgroundColor: '#690B51' }}>
@@ -229,11 +236,11 @@ const Trayek = () => {
 
                     {/* START AKDP */}
                     <div className="mt-1">
-                        <div className='p-3 rounded-2 text-white mb-3 fw-semibold' style={{ backgroundColor: '#2F1A2A' }}>
+                        <div className='p-3 rounded-2 text-white mb-3 fw-semibold bus__kategori'>
                             BUS AKDP
                         </div>
                         <div className="row justify-content-center align-items-center mb-3">
-                            <div className="col-12 col-md-6 overflow-auto mb-4 mb-md-0" style={{ height: '450px' }}>
+                            <div className="col-12 col-md-6 overflow-auto mb-3 mb-md-0 border-bottom" style={{ height: '450px' }}>
                                 <Table bordered hover size="sm">
                                     <thead style={{ position: 'sticky', top: '0' }}>
                                         <tr className='text-center text-white text-uppercase' style={{ backgroundColor: '#690B51' }}>
@@ -260,7 +267,7 @@ const Trayek = () => {
                                     </tbody>
                                 </Table>
                             </div>
-                            <div className="col-12 col-md-6 overflow-auto" style={{ height: '450px' }}>
+                            <div className="col-12 col-md-6 overflow-auto border-bottom" style={{ height: '450px' }}>
                                 <Table bordered hover size="sm">
                                     <thead style={{ position: 'sticky', top: '0' }}>
                                         <tr className='text-center text-white text-uppercase' style={{ backgroundColor: '#690B51' }}>

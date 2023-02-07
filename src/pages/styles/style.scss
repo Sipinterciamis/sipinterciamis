@@ -116,7 +116,7 @@
         opacity: .8;
     }
 
-    h3 {
+    h2 {
         margin-top: 60px;
         font-size: 16px;
         position: relative;
@@ -124,9 +124,45 @@
     }
 
     @media only screen and (min-width: 768px) {
-        h3 {
+        h2 {
+            font-size: 30px;
+        }
+    }
+}
+
+.kritik-saran {
+    &__heading {
+        max-width: 390px;
+        color: #690B51;
+
+        h2 {
+            font-size: 18px;
+        }
+    }
+
+    &__content {
+        max-width: 700px;
+        color: #8E8E8E;
+        font-size: 12px;
+    }
+
+    &__btn {
+        background-color: #FFBF00;
+        font-size: 12px;
+        padding: .5em .75em;
+        text-decoration: none;
+    }
+
+    @media only screen and (min-width: 768px) {
+        h2 {
             font-size: 32px;
         }
+
+        &__content,
+        &__btn {
+            font-size: 16px;
+        }
+
     }
 }
 
