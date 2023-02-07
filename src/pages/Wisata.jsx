@@ -3,10 +3,19 @@ import bgWisata from "../data/images/wisata/bgWisata.png"
 import MyCard from "../components/Card";
 import wisata from "../data/wisata";
 import "./styles/wisata.css";
-import { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { useEffect,useState } from "react";
+import { Link,useLocation } from "react-router-dom";
 
 const Wisata = () => {
+
+  const location = useLocation(); // once ready it returns the 'window.location' object
+  const [url, setUrl] = useState(null);
+  useEffect(() => {
+    setUrl(location.pathname);
+    // console.log(url);
+  }, [location]);
+
+
 	useEffect(() => {
 		document.title = "Tempat Wisata - SIPINTER Ciamis";
 	}, []);
@@ -41,7 +50,7 @@ const Wisata = () => {
 				>
 					<div className="d-flex flex-wrap gap-4 justify-content-center pb-5">
 						{wisata.map(data => (
-							<Link to={`/wisata/${data.slug}`} className="text-decoration-none text-dark">
+							<Link to={`/wisata/${data.slug}`} className={"text-decoration-none text-dark" + (url === `/wisata/${data.slug}` ? " active" : "")}>
 								<MyCard
 									kategori="Wisata Alam"
 									judul={data.nama}
