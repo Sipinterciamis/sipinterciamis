@@ -39,74 +39,11 @@ const WisataDetail = () => {
                                         <div style={{ width: '100%', height: '400px' }}>
                                             <Maps mapSrc={wisata.mapSrc} />
                                         </div>
-                                        {/* <p className="text-center text-lg-start" style={{ color: "rgba(47, 26, 42, 1)", fontSize: "24px", fontWeight: "700" }}>Trayek</p>
-                            <div className="list-trayek">
-                                <div className="row justify-content-between align-items-center px-4 py-3" style={{ borderBottom: "1px solid #B9B9B9D9" }}>
-                                    <div style={{ width: "fit-content" }}>
-                                        <p className="mb-2" style={{ color: "#690B51", fontWeight: "700" }}>Angkot 1</p>
-                                        <div className="d-flex flex-row gap-2">
-                                            <img src={routing} alt="" />
-                                            <p className="mb-0 routing" >CIAMIS - CISEPET - KARANGAMPEL</p>
-                                        </div>
-                                    </div>
-                                    <p className="px-3 py-1 mb-0 routing" style={{ fontWeight: "500", color: "#FFBF00", backgroundColor: "#FFBF0026", borderRadius: "50px", width: "fit-content" }}>Lihat Detail</p>
-                                </div>
-                                <div className="row justify-content-between align-items-center px-4 py-3" style={{ borderBottom: "1px solid #B9B9B9D9" }}>
-                                    <div style={{ width: "fit-content" }}>
-                                        <p className="mb-2" style={{ color: "#690B51", fontWeight: "700" }}>Angkot 1</p>
-                                        <div className="d-flex flex-row gap-2">
-                                            <img src={routing} alt="" />
-                                            <p className="mb-0 routing" >CIAMIS - CISEPET - KARANGAMPEL</p>
-                                        </div>
-                                    </div>
-                                    <p className="px-3 py-1 mb-0 routing" style={{ fontWeight: "500", color: "#FFBF00", backgroundColor: "#FFBF0026", borderRadius: "50px", width: "fit-content" }}>Lihat Detail</p>
-                                </div>
-                                <div className="row justify-content-between align-items-center px-4 py-3" style={{ borderBottom: "1px solid #B9B9B9D9" }}>
-                                    <div style={{ width: "fit-content" }}>
-                                        <p className="mb-2" style={{ color: "#690B51", fontWeight: "700" }}>Angkot 1</p>
-                                        <div className="d-flex flex-row gap-2">
-                                            <img src={routing} alt="" />
-                                            <p className="mb-0 routing" >CIAMIS - CISEPET - KARANGAMPEL</p>
-                                        </div>
-                                    </div>
-                                    <p className="px-3 py-1 mb-0 routing" style={{ fontWeight: "500", color: "#FFBF00", backgroundColor: "#FFBF0026", borderRadius: "50px", width: "fit-content" }}>Lihat Detail</p>
-                                </div>
-                                <div className="row justify-content-between align-items-center px-4 py-3" style={{ borderBottom: "1px solid #B9B9B9D9" }}>
-                                    <div style={{ width: "fit-content" }}>
-                                        <p className="mb-2" style={{ color: "#690B51", fontWeight: "700" }}>Angkot 1</p>
-                                        <div className="d-flex flex-row gap-2">
-                                            <img src={routing} alt="" />
-                                            <p className="mb-0 routing" >CIAMIS - CISEPET - KARANGAMPEL</p>
-                                        </div>
-                                    </div>
-                                    <p className="px-3 py-1 mb-0 routing" style={{ fontWeight: "500", color: "#FFBF00", backgroundColor: "#FFBF0026", borderRadius: "50px", width: "fit-content" }}>Lihat Detail</p>
-                                </div>
-                                <div className="row justify-content-between align-items-center px-4 py-3" style={{ borderBottom: "1px solid #B9B9B9D9" }}>
-                                    <div style={{ width: "fit-content" }}>
-                                        <p className="mb-2" style={{ color: "#690B51", fontWeight: "700" }}>Angkot 1</p>
-                                        <div className="d-flex flex-row gap-2">
-                                            <img src={routing} alt="" />
-                                            <p className="mb-0 routing" >CIAMIS - CISEPET - KARANGAMPEL</p>
-                                        </div>
-                                    </div>
-                                    <p className="px-3 py-1 mb-0 routing" style={{ fontWeight: "500", color: "#FFBF00", backgroundColor: "#FFBF0026", borderRadius: "50px", width: "fit-content" }}>Lihat Detail</p>
-                                </div>
-                            </div> */}
                                     </Card.Body>
                                 </Card>
                             </div>
                         </div>
                     </>
-
-                    // {/* <Container>
-                    //     <p className="mt-4 mb-lg-5 text-center title">Peta Lokasi</p>
-                    //     <div className="d-flex justify-content-center p-2">
-                    //         <div style={{ width: '100%', height: '400px' }}>
-                    //             <Maps mapSrc={wisata.mapSrc} />
-                    //         </div>
-                    //         <img className="img-fluid col-md-7 p-3 mb-5" src={peta} alt="" style={{ border: "#B9B9B9D9", boxShadow: "0px 2px 4px 0px #00000040", borderRadius: "10px" }} />
-                    //     </div>
-                    // </Container> */}
                 ) : (<p>Data Tidak Ditemukan</p>)}
             </Container>
         </div>

@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import terminal from "../data/images/terminal.jpg";
+import terminal from "../data/images/info/terminal.jpg";
 import bg_header from "../data/images/info/info-header-bg.png";
 import "./styles/style.scss";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -70,28 +70,25 @@ function Home() {
 
 			{/* START STRUKTUR ORGANISASI */}
 			<div className="mt-3 struktur-organisasi d-flex flex-column align-items-center" style={{
-				marginBottom
-					: "80px"
+				marginBottom: "80px"
 			}}>
 				<h2 className="text-center judul mt-lg-5 mt-3 fw-semibold mb-4">Struktur Organisasi</h2>
-				<img className="img-fluid col-md-8 mt-2" style={{ borderRadius: "8px" }} src={bagan} alt="" />
+				<img className="img-fluid col-md-8 mt-2" style={{ borderRadius: "8px" }} src={bagan} alt="bagan-organisasi" />
 			</div>
 			{/* END STRUKTUR ORGANISASI */}
 
 			{/* START DENAH TERMINAL */}
 			<div className="mt-3 struktur-organisasi d-flex flex-column align-items-center" style={{
-				marginBottom
-					: "80px"
+				marginBottom: "80px"
 			}}>
 				<h2 className="text-center judul mt-lg-5 mt-3 fw-semibold mb-4">Denah Terminal Ciamis</h2>
-				<img className="img-fluid col-md-8 p-3 mt-2" style={{ borderRadius: "8px", border: "1px solid #B9B9B9D9", boxShadow: " 0px 2px 4px 0px rgba(0, 0, 0, 0.25)" }} src={denah} alt="" />
+				<img className="img-fluid col-md-8 p-3 mt-2" style={{ borderRadius: "8px", border: "1px solid #B9B9B9D9", boxShadow: " 0px 2px 4px 0px rgba(0, 0, 0, 0.25)" }} src={denah} alt="denah" />
 			</div>
 			{/* END DENAH TERMINAL */}
 
 			{/* START FASILITAS */}
 			<div className="mt-3 fasilitas d-flex flex-column align-items-center" style={{
-				marginBottom
-					: "80px"
+				marginBottom: "80px"
 			}}>
 				<Container className="">
 					<h2 className="text-center judul mt-lg-5 mt-3 mb-4 fw-semibold">Fasilitas Terminal Ciamis</h2>
@@ -140,24 +137,6 @@ function Home() {
 							))}
 						</Swiper>
 					</div>
-
-					{/* MOBILE */}
-					{/* <Swiper
-						modules={[Navigation, Pagination]}
-						navigation={true}
-						effect
-						speed={800}
-						slidesPerView={1}
-						loop
-						className="myswiper-sm col-md-7 col-10"
-					>
-						{fasilitas.map((fasil) => (
-							<SwiperSlide className="col-md-3 flex-column mx-4 pt-4" style={{ border: "1px solid #B9B9B9D9", borderRadius: "8px", height: "400px", boxShadow: " 0px 2px 4px 0px rgba(0, 0, 0, 0.25)" }}>
-								<img src={fasil.imageUrl} alt="" style={{ objectFit: "cover", borderRadius: "8px" }} className="p-2" />
-								<p style={{ fontWeight: "500" }} className="text-center">{fasil.nama}</p>
-							</SwiperSlide>
-						))}
-					</Swiper> */}
 				</Container>
 
 			</div>
@@ -168,11 +147,9 @@ function Home() {
 				className="bg-pertokoan"
 			>
 				<Container className="d-flex" style={{ zIndex: 2 }}>
-					{/* <div className=""> */}
 					<h2 className="text-white text-center text-lg-start">
 						Terdapat <span style={{ color: '#FFBF00' }}>56</span> toko di lingkungan Terminal Ciamis
 					</h2>
-					{/* </div> */}
 				</Container>
 			</div>
 			{/* END PERTOKOAN */}

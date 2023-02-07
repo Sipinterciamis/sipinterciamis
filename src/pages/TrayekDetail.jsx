@@ -63,7 +63,7 @@ function TrayekDetail() {
                                 <div class="row g-0">
                                     <div class="col-md-6">
                                         {/* <div > */}
-                                        <img src={dataAngkot.imageUrl} alt='foto' className='img-fluid w-100' style={{ height: '240px', objectFit: 'cover' }} />
+                                        <img src={dataAngkot.imageUrl} alt='foto' className='img-fluid w-100' style={{ height: '300px', objectFit: 'cover' }} />
                                         {/* </div> */}
                                     </div>
                                     <div class="col-md-6">
@@ -76,20 +76,6 @@ function TrayekDetail() {
                                     </div>
                                 </div>
                             </Card>
-                            {/* <Card.Body className='d-flex justify-content-start gap-5' style={{ height: '370px' }}>
-                                        <div className="w-50">
-                                            <img src={dataAngkot.imageUrl} alt='foto' className='w-100' style={{ height: '100%', objectFit: 'cover' }} />
-                                        </div>
-                                        <div>
-                                            <h2 className='fw-semibold' style={{ color: '#690B51' }}>{dataAngkot.nama}</h2>
-                                            <div className='text-muted rute'><img src={routing} alt="" />
-                                                <small> {dataAngkot.trayek}</small>
-                                            </div>
-                                        </div>
-                                    </Card.Body>
-                                </Card> */}
-                            {/* </div> */}
-                            {/* </div> */}
                         </div>
                     </section>
 

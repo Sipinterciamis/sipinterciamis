@@ -8,7 +8,6 @@ import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
 const Wisata = () => {
-
 	const location = useLocation(); // once ready it returns the 'window.location' object
 	const [url, setUrl] = useState(null);
 	useEffect(() => {
