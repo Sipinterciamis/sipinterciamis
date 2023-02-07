@@ -20,24 +20,24 @@ const Navigation = () => {
           <NavbarBrand href="#home">
             <Link className='brand' to="/">
               <h3 className='fw-semibold'>SIPINTER</h3>
-              <small className='text-start'>Sistem Informasi Manajemen <br /> Terminal Ciamis</small>
+              <small className='text-start text-muted'>Sistem Informasi Manajemen <br /> Terminal Ciamis</small>
             </Link>
           </NavbarBrand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="ms-auto">
               <Nav.Link>
-                <Link className={"navlink" + (url === "/" ? " active" : "")} to="/" style={{ fontSize: '18px' }}>
+                <Link className={"navlink" + (url === "/" ? " active" : "")} to="/">
                   Info
                 </Link>
               </Nav.Link>
               <Nav.Link>
-                <Link className={"navlink" + (url === "/trayek" ? " active" : "")} to="/trayek" style={{ fontSize: '18px' }}>
+                <Link className={"navlink" + (url === "/trayek" ? " active" : "")} to="/trayek">
                   Trayek
                 </Link>
               </Nav.Link>
               <Nav.Link>
-                <Link className={"navlink" + (url === "/wisata" ? " active" : "")} to="/wisata" style={{ fontSize: '18px' }}>
+                <Link className={"navlink" + (url === "/wisata" ? " active" : "")} to="/wisata">
                   Wisata
                 </Link>
               </Nav.Link>

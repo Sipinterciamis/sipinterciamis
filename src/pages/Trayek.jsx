@@ -122,7 +122,7 @@ const Trayek = () => {
             {/* END SECTION PETA RUTE TRAYEK */}
 
             {/* START DAFTAR ANGKOT */}
-            <div className="mb-5 px-4 px-md-0" >
+            <div className="mb-5 px-4 px-md-0 data-angkot">
                 <h2 className="text-center mt-5 mb-4 fw-semibold">Daftar Angkot Terminal Ciamis</h2>
                 <Container className="mt-5 pb-4" style={{ boxShadow: "0 2px 2px -2px rgba(0,0,0,.4)" }}>
                     {/* <div className="list-trayek">
@@ -172,7 +172,7 @@ const Trayek = () => {
                     <div className="row justify-content-center align-items-start mb-md-5">
                         <div className="col-12 col-md-6 overflow-auto mb-5 mb-md-0" style={{ height: '450px' }}>
                             <Table bordered hover size="sm">
-                                <thead>
+                                <thead className='' style={{ position: 'sticky', top: '0' }}>
                                     <tr className='text-center text-white text-uppercase' style={{ backgroundColor: '#690B51' }}>
                                         <th className='fw-semibold' style={{ width: '10%' }}>No</th>
                                         <th id='akap-besar' className='fw-semibold' colSpan={4}>AKAP Besar</th>
@@ -199,7 +199,7 @@ const Trayek = () => {
                         </div>
                         <div className="col-12 col-md-6 overflow-auto" style={{ height: '350px' }}>
                             <Table bordered hover size="sm">
-                                <thead>
+                                <thead style={{ position: 'sticky', top: '0' }}>
                                     <tr className='text-center text-white text-uppercase' style={{ backgroundColor: '#690B51' }}>
                                         <th className='fw-semibold' style={{ width: '10%' }}>No</th>
                                         <th id='segmen-berangkat' className='fw-semibold' colSpan={4}>AKAP Sedang</th>
@@ -234,62 +234,58 @@ const Trayek = () => {
                         </div>
                         <div className="row justify-content-center align-items-center mb-3">
                             <div className="col-12 col-md-6 overflow-auto mb-4 mb-md-0" style={{ height: '450px' }}>
-                                <div className="">
-                                    <Table bordered hover size="sm">
-                                        <thead>
-                                            <tr className='text-center text-white text-uppercase' style={{ backgroundColor: '#690B51' }}>
-                                                <th className='fw-semibold' style={{ width: '10%' }}>No</th>
-                                                <th id='segmen-berangkat' className='fw-semibold' colSpan={4}>AKDP Besar</th>
-                                            </tr>
-                                            <tr className='text-center text-white fw-semibold text-uppercase' style={{ backgroundColor: '#690B51' }}>
-                                                <th></th>
-                                                <th headers='segmen-berangkat' className='fw-semibold' style={{ width: 'auto' }}>Trayek</th>
-                                                <th headers='segmen-berangkat' className='fw-semibold' style={{ width: 'auto' }}>Nama PO</th>
-                                                <th headers='segmen-berangkat' className='fw-semibold' style={{ width: 'auto' }}>Waktu</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            {AKDP.map(akdp => (
-                                                <>
-                                                    {akdp.besar.map((data) => (
-                                                        <>
-                                                            {renderItem(data.id, data.trayek, data.namaPO, data.waktu)}
-                                                        </>
-                                                    ))}
-                                                </>
-                                            ))}
-                                        </tbody>
-                                    </Table>
-                                </div>
+                                <Table bordered hover size="sm">
+                                    <thead style={{ position: 'sticky', top: '0' }}>
+                                        <tr className='text-center text-white text-uppercase' style={{ backgroundColor: '#690B51' }}>
+                                            <th className='fw-semibold' style={{ width: '10%' }}>No</th>
+                                            <th id='segmen-berangkat' className='fw-semibold' colSpan={4}>AKDP Besar</th>
+                                        </tr>
+                                        <tr className='text-center text-white fw-semibold text-uppercase' style={{ backgroundColor: '#690B51' }}>
+                                            <th></th>
+                                            <th headers='segmen-berangkat' className='fw-semibold' style={{ width: 'auto' }}>Trayek</th>
+                                            <th headers='segmen-berangkat' className='fw-semibold' style={{ width: 'auto' }}>Nama PO</th>
+                                            <th headers='segmen-berangkat' className='fw-semibold' style={{ width: 'auto' }}>Waktu</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {AKDP.map(akdp => (
+                                            <>
+                                                {akdp.besar.map((data) => (
+                                                    <>
+                                                        {renderItem(data.id, data.trayek, data.namaPO, data.waktu)}
+                                                    </>
+                                                ))}
+                                            </>
+                                        ))}
+                                    </tbody>
+                                </Table>
                             </div>
                             <div className="col-12 col-md-6 overflow-auto" style={{ height: '450px' }}>
-                                <div className="">
-                                    <Table bordered hover size="sm">
-                                        <thead>
-                                            <tr className='text-center text-white text-uppercase' style={{ backgroundColor: '#690B51' }}>
-                                                <th className='fw-semibold' style={{ width: '10%' }}>No</th>
-                                                <th id='segmen-berangkat' className='fw-semibold' colSpan={4}>AKDP Sedang</th>
-                                            </tr>
-                                            <tr className='text-center text-white fw-semibold text-uppercase' style={{ backgroundColor: '#690B51' }}>
-                                                <th></th>
-                                                <th headers='segmen-berangkat' className='fw-semibold' style={{ width: 'auto' }}>Trayek</th>
-                                                <th headers='segmen-berangkat' className='fw-semibold' style={{ width: 'auto' }}>Nama PO</th>
-                                                <th headers='segmen-berangkat' className='fw-semibold' style={{ width: 'auto' }}>Waktu</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            {AKDP.map(akdp => (
-                                                <>
-                                                    {akdp.sedang.map((data) => (
-                                                        <>
-                                                            {renderItem(data.id, data.trayek, data.namaPO, data.waktu)}
-                                                        </>
-                                                    ))}
-                                                </>
-                                            ))}
-                                        </tbody>
-                                    </Table>
-                                </div>
+                                <Table bordered hover size="sm">
+                                    <thead style={{ position: 'sticky', top: '0' }}>
+                                        <tr className='text-center text-white text-uppercase' style={{ backgroundColor: '#690B51' }}>
+                                            <th className='fw-semibold' style={{ width: '10%' }}>No</th>
+                                            <th id='segmen-berangkat' className='fw-semibold' colSpan={4}>AKDP Sedang</th>
+                                        </tr>
+                                        <tr className='text-center text-white fw-semibold text-uppercase' style={{ backgroundColor: '#690B51' }}>
+                                            <th></th>
+                                            <th headers='segmen-berangkat' className='fw-semibold' style={{ width: 'auto' }}>Trayek</th>
+                                            <th headers='segmen-berangkat' className='fw-semibold' style={{ width: 'auto' }}>Nama PO</th>
+                                            <th headers='segmen-berangkat' className='fw-semibold' style={{ width: 'auto' }}>Waktu</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {AKDP.map(akdp => (
+                                            <>
+                                                {akdp.sedang.map((data) => (
+                                                    <>
+                                                        {renderItem(data.id, data.trayek, data.namaPO, data.waktu)}
+                                                    </>
+                                                ))}
+                                            </>
+                                        ))}
+                                    </tbody>
+                                </Table>
                             </div>
                         </div>
                     </div>

@@ -89,58 +89,52 @@ function Home() {
 			{/* END DENAH TERMINAL */}
 
 			{/* START FASILITAS */}
-			<div className="mt-3 struktur-organisasi d-flex flex-column align-items-center" style={{
+			<div className="mt-3 fasilitas d-flex flex-column align-items-center" style={{
 				marginBottom
 					: "80px"
 			}}>
-				<Container>
+				<Container className="">
 					<h2 className="text-center judul mt-lg-5 mt-3 mb-4 fw-semibold">Fasilitas Terminal Ciamis</h2>
 					{/* DESKTOP */}
-					<Swiper
-						modules={[Navigation, Pagination]}
-						navigation={true}
-						effect
-						speed={800}
-						slidesPerView={1}
-						loop={true}
-						spaceBetween={30}
-						pagination={{
-							clickable: true,
-						}}
-						breakpoints={{
-							// when window width is >= 640px
-							640: {
-								width: 640,
-								slidesPerView: 3,
-							},
-							// when window width is >= 768px
-							768: {
-								width: 768,
-								slidesPerView: 3,
-							},
-						}}
-						className="mySwiper w-75 pb-5"
-					>
-						{/* {fasilitas.map((fasil) => (
-						<SwiperSlide className="col-md-3 flex-column mx-4" style={{ border: "1px solid #B9B9B9D9", borderRadius: "8px", height: "400px", boxShadow: " 0px 2px 4px 0px rgba(0, 0, 0, 0.25)" }}>
-							<img src={fasil.imageUrl} alt="" style={{ objectFit: "contain", borderRadius: "8px" }} className="p-2" />
-							<p style={{ fontWeight: "500" }} className="text-center">{fasil.nama}</p>
-						</SwiperSlide>
-					))} */}
-						{fasilitas.map((fasil) => (
-							<SwiperSlide className="">
-								<Card style={{ height: '300px', width: '100%' }}>
-									<Card.Img src={fasil.imageUrl} className='p-2 rounded-4'>
-										{/* <img src={fasil.imageUrl} alt="" style={{ objectFit: "cover", borderRadius: "7px" }} className="" /> */}
-									</Card.Img>
-									<Card.Body className="p-2">
-										<p style={{ fontWeight: "500" }} className="text-center mb-0">{fasil.nama}</p>
-									</Card.Body>
-								</Card>
+					<div style={{ height: '400px' }}>
+						<Swiper
+							modules={[Navigation, Pagination]}
+							navigation={true}
+							effect
+							speed={800}
+							slidesPerView={1}
+							loop={true}
+							spaceBetween={30}
+							pagination={{
+								clickable: true,
+							}}
+							breakpoints={{
+								640: {
+									width: 640,
+									slidesPerView: 3,
+								},
+								768: {
+									width: 768,
+									slidesPerView: 3,
+								},
+							}}
+							className="mySwiper w-75 pb-5"
+						>
+							{fasilitas.map((fasil) => (
+								<SwiperSlide className="">
+									<Card style={{ height: '330px' }}>
+										<Card.Img src={fasil.imageUrl} className='p-2 rounded-4' style={{ maxHeight: '90%' }}>
+											{/* <img src={fasil.imageUrl} alt="" style={{ objectFit: "cover", borderRadius: "7px" }} className="" /> */}
+										</Card.Img>
+										<Card.Body className="p-0 fasilitas-nama">
+											<p className="text-center mb-0">{fasil.nama}</p>
+										</Card.Body>
+									</Card>
 
-							</SwiperSlide>
-						))}
-					</Swiper>
+								</SwiperSlide>
+							))}
+						</Swiper>
+					</div>
 
 					{/* MOBILE */}
 					{/* <Swiper
@@ -170,7 +164,7 @@ function Home() {
 			>
 				<Container className="d-flex" style={{ zIndex: 2 }}>
 					{/* <div className=""> */}
-					<h3 style={{ marginTop: "60px" }} className="text-white text-center text-lg-start">
+					<h3 className="text-white text-center text-lg-start">
 						Terdapat <span style={{ color: '#FFBF00' }}>56</span> toko di lingkungan Terminal Ciamis
 					</h3>
 					{/* </div> */}
