@@ -48,9 +48,9 @@ const Wisata = () => {
 					className="pb-4"
 					style={{ boxShadow: "0 2px 2px -2px rgba(0,0,0,.4)" }}
 				>
-					<div className="row justify-content-center pb-5 gap-4">
+					<div className="row justify-content-center pb-5">
 						{wisata.map(data => (
-							<div className="col-10 col-sm-5 col-md-5">
+							<div className="col-10 col-sm-5 col-md-4 mb-4 mb-md-5">
 								<Link to={`/wisata/${data.slug}`} className={"text-decoration-none text-dark" + (url === `/wisata/${data.slug}` ? " active" : "")}>
 									<MyCard
 										kategori="Wisata Alam"
