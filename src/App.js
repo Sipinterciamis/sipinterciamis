@@ -1,5 +1,6 @@
 import './App.css';
-import { Link, Route, Routes } from 'react-router-dom';
+// import './index.css';
+import { Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import Navbar from './components/Navbar';
 import Wisata from './pages/Wisata';

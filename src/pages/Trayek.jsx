@@ -188,7 +188,7 @@ const Trayek = () => {
                                         <th></th>
                                         <th headers='akap-besar' className='fw-semibold' style={{ width: 'auto' }}>Trayek</th>
                                         <th headers='akap-besar' className='fw-semibold' style={{ width: 'auto' }}>Nama PO</th>
-                                        <th headers='akap-besar' className='fw-semibold' style={{ width: 'auto' }}>Waktu</th>
+                                        <th headers='akap-besar' className='fw-semibold' style={{ width: 'auto' }}>Waktu *</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -215,7 +215,7 @@ const Trayek = () => {
                                         <th></th>
                                         <th headers='segmen-berangkat' className='fw-semibold' style={{ width: 'auto' }}>Trayek</th>
                                         <th headers='segmen-berangkat' className='fw-semibold' style={{ width: 'auto' }}>Nama PO</th>
-                                        <th headers='segmen-berangkat' className='fw-semibold' style={{ width: 'auto' }}>Waktu</th>
+                                        <th headers='segmen-berangkat' className='fw-semibold' style={{ width: 'auto' }}>Waktu *</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -251,7 +251,7 @@ const Trayek = () => {
                                             <th></th>
                                             <th headers='segmen-berangkat' className='fw-semibold' style={{ width: 'auto' }}>Trayek</th>
                                             <th headers='segmen-berangkat' className='fw-semibold' style={{ width: 'auto' }}>Nama PO</th>
-                                            <th headers='segmen-berangkat' className='fw-semibold' style={{ width: 'auto' }}>Waktu</th>
+                                            <th headers='segmen-berangkat' className='fw-semibold' style={{ width: 'auto' }}>Waktu *</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -278,7 +278,7 @@ const Trayek = () => {
                                             <th></th>
                                             <th headers='segmen-berangkat' className='fw-semibold' style={{ width: 'auto' }}>Trayek</th>
                                             <th headers='segmen-berangkat' className='fw-semibold' style={{ width: 'auto' }}>Nama PO</th>
-                                            <th headers='segmen-berangkat' className='fw-semibold' style={{ width: 'auto' }}>Waktu</th>
+                                            <th headers='segmen-berangkat' className='fw-semibold' style={{ width: 'auto' }}>Waktu *</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -297,6 +297,10 @@ const Trayek = () => {
                         </div>
                     </div>
                     {/* END AKDP */}
+
+                    <div>
+                        <small className='text-muted'><span className='text-danger'>*</span> Keberangkatan tentantif tergantung dari masing-masing PO</small>
+                    </div>
                 </Container>
             </div >
             {/* END DATA BUS */}
